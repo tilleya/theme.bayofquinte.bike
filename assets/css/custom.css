@@ -927,7 +927,7 @@ grid-area: Main;
 
 /* Individual Post Card */
 .hero-sponsor-post {
-  display: flex;
+
   align-items: center;
   gap: clamp(0.5rem, 1vw, 1rem);
   background: rgba(255, 255, 255, 0.1);
@@ -937,7 +937,7 @@ grid-area: Main;
   width: 100%;
   min-height: clamp(80px, 33vh, 120px);
   box-sizing: border-box;
-  z-index: 0;
+  z-index: 1;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
