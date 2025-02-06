@@ -23,8 +23,8 @@ jobs:
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
           # working-directory: ..
       
-      - name: Upload compiled zip
-        uses: actions/upload-artifact@v4
-        with:
-          name: shoji-zip
-          path: shoji.zip
+      #- name: Upload compiled zip
+       # uses: actions/upload-artifact@v4
+        #with:
+         # name: shoji-zip
+          #path: shoji.zip
