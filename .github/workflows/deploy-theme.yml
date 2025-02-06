@@ -11,7 +11,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         with:
-          path: theme.bayofquinte.bike
+          path: .
       
       - name: Debug Paths
         run: pwd && ls -R
