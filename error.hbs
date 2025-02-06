@@ -1,0 +1,25 @@
+{{!< default-custom}}
+{{#contentFor "custom_meta_title"}}{{statusCode}}{{/contentFor}}
+<body class="custom-error custom-page">
+	<div class="custom-wrap">
+		<div class="custom-container">
+			<div class="custom-header">
+				<a href="{{@site.url}}">{{>icons/site/arrow_left}}{{t "Back to homepage"}}</a>
+			</div>
+			<div class="custom-content">
+				<div class="error-message">
+					<h1>{{statusCode}}</h1>
+					<p>{{message}}</p>
+					<a href="{{@site.url}}" class="global-button">{{t "Back to homepage"}}</a>
+				</div>
+			</div>
+			{{#if @site.description}}
+			<div class="custom-footer">
+				<a href="{{@site.url}}">{{@site.title}}.</a>
+				<span>{{@site.description}}.</span>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+	{{ghost_foot}}
+</body>

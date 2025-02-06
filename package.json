@@ -1,0 +1,142 @@
+{
+    "name": "shoji",
+    "demo": "https://shoji.fueko.net",
+    "version": "3.3.0",
+    "license": "MIT",
+    "scripts": {
+        "dev": "gulp",
+        "zip": "gulp zip",
+        "test": "gscan .",
+        "test:ci": "gscan --fatal --verbose .",
+        "pretest": "gulp build",
+        "preship": "yarn test",
+        "ship": "STATUS=$(git status --porcelain); echo $STATUS; if [ -z \"$STATUS\" ]; then yarn version && git push --follow-tags; else echo \"Uncomitted changes found.\" && exit 1; fi",
+        "postship": "git fetch && gulp release"
+    },
+    "docs": "https://fueko.net/docs/shoji/",
+    "author": {
+        "name": "fueko",
+        "email": "hello@fueko.net",
+        "url": "https://fueko.net"
+    },
+    "keywords": [
+        "ghost-theme"
+    ],
+    "devDependencies": {
+        "@tryghost/release-utils": "0.8.1",
+        "autoprefixer": "10.4.7",
+        "beeper": "2.1.0",
+        "cssnano": "5.1.12",
+        "gscan": "4.43.1",
+        "gulp": "4.0.2",
+        "gulp-concat": "2.6.1",
+        "gulp-livereload": "4.0.2",
+        "gulp-postcss": "9.0.1",
+        "gulp-uglify": "3.0.2",
+        "gulp-zip": "5.1.0",
+        "inquirer": "8.2.4",
+        "postcss": "8.2.13",
+        "postcss-color-mod-function": "3.0.3",
+        "postcss-easy-import": "4.0.0",
+        "pump": "3.0.0"
+    },
+    "config": {
+        "posts_per_page": 7,
+        "card_assets": {
+            "exclude": [
+                "bookmark",
+                "gallery",
+                "blockquote"
+            ]
+        },
+        "custom": {
+            "color_scheme": {
+                "type": "select",
+                "options": [
+                    "Light",
+                    "Dark",
+                    "Auto"
+                ],
+                "default": "Light"
+            },
+            "logo_for_dark_color_scheme": {
+                "type": "image",
+                "visibility": "color_scheme:[Dark,Auto]"
+            },
+            "show_author": {
+                "type": "boolean",
+                "default": true,
+                "description": "Set to false if you don’t want to display the author in the feed or on the post page"
+            },
+            "standard_load_more_button": {
+                "type": "boolean",
+                "default": false
+            },
+            "navigation_on_the_right_side": {
+                "type": "boolean",
+                "default": false
+            },
+            "show_authors_widget": {
+                "type": "boolean",
+                "default": true,
+                "description": "Set to false if you don’t want to display the authors widget"
+            },
+            "authors_widget_url_slug": {
+                "type": "text",
+                "default": "/authors/",
+                "description": "Specify the slug with leading and trailing slashes for the authors widget, e.g. /authors/",
+                "visibility": "show_authors_widget:true"
+            },
+            "tags_widget_url_slug": {
+                "type": "text",
+                "default": "/tags/",
+                "description": "Specify the slug with leading and trailing slashes for the tags widget, e.g. /tags/"
+            },
+            "content_api_key_for_search": {
+                "type": "text"
+            },
+            "contact_form_endpoint": {
+                "type": "text"
+            },
+            "footer_copyright": {
+                "type": "text"
+            },
+            "tag_for_special_section_1": {
+                "type": "text",
+                "group": "homepage",
+                "default": "featured",
+                "description": "Specify the tag slug you want to exclude in the loop."
+            },
+            "tag_for_special_section_2": {
+                "type": "text",
+                "group": "homepage",
+                "default": "guide",
+                "description": "Specify the tag slug you want to exclude in the loop."
+            },
+            "tag_for_special_section_3": {
+                "type": "text",
+                "group": "homepage",
+                "default": "events",
+                "description": "Specify the tag slug you want to exclude in the loop."
+            },
+            "disqus_shortname": {
+                "type": "text",
+                "group": "post"
+            },
+            "sponsor_logo": {
+                "type": "image",
+                "group": "sponsors",
+                "description": "Upload a sponsor logo to display in the hero section"
+            },
+            "sponsor_cta_text": {
+                "type": "text",
+                "group": "sponsors",
+                "default": "Learn More",
+                "description": "Enter the text for the call-to-action button in the hero section."
+            }
+        }
+    },
+    "dependencies": {
+        "nvm": "^0.0.4"
+    }
+}

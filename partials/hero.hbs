@@ -1,0 +1,21 @@
+<div class="hero-sponsor-overlay"></div>
+
+<div class="hero-sponsor-content{{#if @first}} is-centered{{/if}}">
+
+  {{#if @custom.sponsor_logo}}
+    <img src="{{@custom.sponsor_logo}}" alt="Sponsor Logo" class="hero-sponsor-logo">
+  {{else}}
+    <h1 class="hero-sponsor-title">{{name}}</h1>
+  {{/if}}
+
+  {{#if description}}
+    <p class="hero-sponsor-description">{{description}}</p>
+  {{/if}}
+
+  <div class="hero-sponsor-meta">
+    <div class="hero-sponsor-counter">
+      <span>{{count.posts}}</span>
+    </div>
+    <a href="{{url}}" class="hero-sponsor-cta">Explore Sponsor</a>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{{#if pagination.total_pages}}
+<div class="pagination-section">
+    <div class="pagination-wrap">
+        {{#if pagination.prev}}
+        <a class="newer-posts global-button" href="{{pagination.prev}}">
+            &larr; {{t "Newer Posts"}}
+        </a>
+        {{/if}}
+        {{#if pagination.next}}
+        <a class="older-posts global-button" href="{{pagination.next}}">
+            {{t "Older Posts"}} &rarr;
+        </a>
+        {{/if}}
+    </div>
+</div>
+{{/if}}
