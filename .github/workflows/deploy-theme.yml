@@ -2,7 +2,6 @@ name: Deploy Theme
 on:
   push:
     branches:
-      - master
       - main
 jobs:
   deploy:
@@ -12,7 +11,7 @@ jobs:
         uses: actions/checkout@v3
         with:
          # fetch-depth: 0  # Ensures the full repo is checked out
-          ref: master
+          ref: main
       
       - name: Debug Paths
         run: pwd && ls -R
