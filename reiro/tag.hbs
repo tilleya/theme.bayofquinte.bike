@@ -1,0 +1,13 @@
+{{!< hasttings-default}}
+{{#tag}}
+{{#contentFor "feature_image"}}
+{{#if feature_image}}
+<div class="global-cover" style="background-image:url({{{img_url feature_image size="xl" format="webp"}}})"></div>
+{{else if @site.cover_image}}
+<div class="global-cover" style="background-image:url({{{img_url @site.cover_image size="xl" format="webp"}}})"></div>
+{{/if}}
+{{/contentFor}}
+{{>reiro/partials/posts/header archive_page=true is_custom=true title=name custom_excerpt=description custom_image=feature_image}}
+{{/tag}}
+{{>reiro/partials/hastings-loop is_archive=true}}
+{{hastings-pagination}}
