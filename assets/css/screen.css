@@ -2636,7 +2636,7 @@ textarea::placeholder {
 /* Koenig — blockquote 
    –––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .post-content blockquote {
-   font-size: 40px;
+   font-size: clamp(18px, 24px, 36px);
    position: relative;
    box-sizing: border-box;
    width: 100%;

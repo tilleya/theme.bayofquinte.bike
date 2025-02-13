@@ -30,9 +30,9 @@
 {{/if}}
 {{/get}}
 {{/if}}
-{{else match @custom.widgets "Best authors"}}
+{{else match @custom.widgets "Best Routes"}}
 {{#if @custom.slugs_for_selected_tags_or_authors}}
-{{#get "authors" limit="8" filter="slug:[{{@custom.slugs_for_selected_tags_or_authors}}]+visibility:public+profile_image:-null" include="count.posts" as |widget|}}
+{{#get "authors" limit="8" filter="slug:[bestroutes]+visibility:public+profile_image:-null" include="count.posts" as |widget|}}
 {{#if widget}}
 <div class="widget-section global-padding">
 	<small class="global-subtitle">{{t "Best authors"}}</small>

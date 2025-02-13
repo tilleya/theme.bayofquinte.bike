@@ -1,5 +1,5 @@
 {{#match @custom.tags_for_special_section}}
-{{#get "posts" limit="5" filter="tag:[{{@custom.tags_for_special_section}}]" include="authors" as |special_posts|}}
+{{#get "posts" limit="5" filter="tag:[events]" include="authors" as |special_posts|}}
 	{{#if special_posts}}
 		{{>reiro/partials/hastings-related label=(t "You might also like")}}
 	{{/if}}
