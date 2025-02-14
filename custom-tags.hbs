@@ -82,31 +82,33 @@
     as |tags_top|
 }}
   {{#if tags_top}}
-    <div class="loop-wrap">
-      {{#foreach tags_top}}
-        <div class="custom-element top loop-item global-box-shadow{{#if feature_image}} is-image{{/if}}">
-          <div class="custom-element-wrap loop-item-wrap">
-            <div class="loop-item-elements">
-              <a href="{{url}}" class="global-link" aria-label="{{name}}"></a>
-              {{#if feature_image}}
-              <div class="custom-element-image loop-item-image global-image">
-                {{>images/tag_feature_img}}
-              </div>
-              {{/if}}
-            </div>
-            <div class="custom-element-content top loop-item-content">
-              <div class="custom-element-title-wrap">
-                <h2 class="loop-item-title global-title">
-                  <a href="{{url}}" class="global-underline">{{name}}</a>
-                </h2>
-              </div>
-              <div class="custom-element-counter top">
-{{#if count.posts}}
-              </div>
-            </div>
-          </div>
-        </div>
-      {{/foreach}}
+<div class="loop-wrap">
+	{{#foreach tags to="4"}}
+	{{#if count.posts}}
+	<div class="custom-element top loop-item global-box-shadow{{#if feature_image}} is-image{{/if}}">
+		<div class="custom-element-wrap loop-item-wrap">
+			<div class="loop-item-elements">
+				<a href="{{url}}" class="global-link" aria-label="{{name}}"></a>
+				{{#if feature_image}}
+				<div class="custom-element-image loop-item-image global-image">
+					{{>images/tag_feature_img}}
+				</div>
+				{{/if}}
+			</div>
+			<div class="custom-element-content top loop-item-content">
+				<div class="custom-element-title-wrap">
+					<h2 class="loop-item-title global-title">
+					<a href="{{url}}" class="global-underline">{{name}}</a>
+					</h2>
+				</div>
+				<div class="custom-element-counter top">
+					<span>{{count.posts}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/if}}
+	{{/foreach}}
     </div>
   {{/if}}
 {{/get}}
