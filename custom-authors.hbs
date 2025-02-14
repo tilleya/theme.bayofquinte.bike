@@ -3,6 +3,7 @@
 {{#if authors_top}}
 <div class="loop-wrap">
 	{{#foreach authors to="4"}}
+	{{#if count.posts}}
 	<div class="custom-element top loop-item global-box-shadow{{#if profile_image}} is-image{{else}}{{#if cover_image}} is-image{{/if}}{{/if}}">
 		<div class="custom-element-wrap loop-item-wrap">
 			<div class="loop-item-elements">
@@ -34,10 +35,12 @@
 			</div>
 		</div>
 	</div>
+	{{/if}}
 	{{/foreach}}
 </div>
 {{/if}}
 {{#foreach authors from="5"}}
+{{#if count.posts}}
 {{#if @first}}
 <div class="global-heading">
 	<h3>{{t "You might also like"}}</h3>
@@ -56,6 +59,7 @@
 		{{#if @last}}
 	</div>
 </div>
+{{/if}}
 {{/if}}
 {{/foreach}}
 {{/get}}

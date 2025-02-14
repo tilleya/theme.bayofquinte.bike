@@ -1,1 +1,1 @@
-<img src="{{@site.cover_image}}" loading="lazy" alt="{{@site.title}}">
+<img src="{{@site.cover_image}}" {{^if is_cover}}loading="lazy"{{/if}} alt="{{@site.title}}">

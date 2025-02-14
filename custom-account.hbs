@@ -8,7 +8,13 @@
 				<div class="archive-title">
 					<div>
 						<h1 class="global-title">{{#if @member.name}}{{@member.name}}{{else}}{{t "Your account"}}{{/if}}</h1>
-						<p class="archive-description account-description">{{t "Nice, you're a paying subscriber! You've an active account with access to all areas. You're all set, but if you need any help, get in touch with us and we'd be happy to help."}}</p>
+						<p class="archive-description account-description">
+						{{#if custom_excerpt}}
+						{{custom_excerpt}}
+						{{else}}
+						{{t "Nice, you're a paying subscriber! You've an active account with access to all areas. You're all set, but if you need any help, get in touch with us and we'd be happy to help."}}
+						{{/if}}
+					</p>
 					</div>
 				</div>
 			</div>
@@ -85,7 +91,17 @@
 				<div class="archive-title">
 					<div>
 						<h1 class="global-title">{{#if @member.name}}{{@member.name}}{{else}}{{t "Your account"}}{{/if}}</h1>
-						<p class="archive-description account-description">{{t "Currently, you're not a paying subscriber. You've an active account with access to posts for subscribers only. Upgrade your account and get access to the full library of posts."}}</p>
+						<p class="archive-description account-description">
+						{{#if custom_excerpt}}
+						{{custom_excerpt}}
+						{{else}}
+						{{#if @site.paid_members_enabled}}
+						{{t "Currently, you're not a paying subscriber. You've an active account with access to posts for subscribers only. Upgrade your account and get access to the full library of posts."}}
+						{{else}}
+						{{t "You’ve an active account with access to posts for subscribers."}}
+						{{/if}}
+						{{/if}}
+					</p>
 					</div>
 				</div>
 			</div>
@@ -107,22 +123,26 @@
 					<span class="account-detail-content">{{@member.email}}</span>
 				</div>
 			</div>
+			{{#if @site.paid_members_enabled}}
 			<div class="account-detail-column">
 				<div>
 					<label class="account-detail-heading">{{t "Your plan"}}</label>
 					<span class="account-detail-content">{{t "Free"}}</span>
 				</div>
 			</div>
+			{{/if}}
 			<div class="account-detail-buttons">
 				<a href="javascript:" data-portal="account">{{t "Account settings"}}</a>
 			</div>
 		</div>
 	</div>
 </div>
+{{#if @site.paid_members_enabled}}
 <div class="membership-heading global-heading">
 	<h3>{{t "More posts? Choose your plan"}}</h3>
 </div>
 {{>members/tiers}}
+{{/if}}
 {{else}}
 <script>
 window.addEventListener("load", function(e) {

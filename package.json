@@ -1,17 +1,18 @@
 {
-    "name": "boq-bike",
+    "name": "shoji",
     "demo": "https://shoji.fueko.net",
-    "version": "3.1.1",
+    "version": "3.3.0",
+    "docs": "https://fueko.net/docs/shoji/",
     "author": {
-        "name": "boq-bike",
-        "email": "adam@thebrakeroom.com",
-        "url": "https://boq.bike"
+        "name": "fueko",
+        "email": "hello@fueko.net",
+        "url": "https://fueko.net"
     },
     "keywords": [
         "ghost-theme"
     ],
     "config": {
-        "posts_per_page": 40,
+        "posts_per_page": 7,
         "card_assets": {
             "exclude": ["bookmark", "gallery", "blockquote"]
         },
@@ -21,6 +22,15 @@
                 "options": ["Light", "Dark", "Auto"],
                 "default": "Light"
             },
+            "logo_for_dark_color_scheme": {
+                "type": "image",
+                "visibility": "color_scheme:[Dark,Auto]"
+            },
+            "show_author": {
+                "type": "boolean",
+                "default": true,
+                "description": "Set to false if you don’t want to display the author in the feed or on the post page"
+            },
             "standard_load_more_button": {
                 "type": "boolean",
                 "default": false
@@ -28,6 +38,22 @@
             "navigation_on_the_right_side": {
                 "type": "boolean",
                 "default": false
+            },
+            "show_authors_widget": {
+                "type": "boolean",
+                "default": true,
+                "description": "Set to false if you don’t want to display the authors widget"
+            },
+            "authors_widget_url_slug": {
+                "type": "text",
+                "default": "/authors/",
+                "description": "Specify the slug with leading and trailing slashes for the authors widget, e.g. /authors/",
+                "visibility": "show_authors_widget:true"
+            },
+            "tags_widget_url_slug": {
+                "type": "text",
+                "default": "/tags/",
+                "description": "Specify the slug with leading and trailing slashes for the tags widget, e.g. /tags/"
             },
             "content_api_key_for_search": {
                 "type": "text"
@@ -37,6 +63,11 @@
             },
             "footer_copyright": {
                 "type": "text"
+            },
+            "tag_for_special_section": {
+                "type": "text",
+                "group": "homepage",
+                "description": "Specify the tag slug you want to display in the special section, e.g. lifestyle"
             },
             "disqus_shortname": {
                 "type": "text",

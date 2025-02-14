@@ -1,6 +1,7 @@
 {{!< default}}
 {{#post}}
 <article class="post-section">
+	{{#match @page.show_title_and_feature_image}}
 	<div class="post-header{{#if feature_image}} is-image{{/if}}">
 		{{#if feature_image}}
 		<div class="post-image global-image">
@@ -22,6 +23,7 @@
 			</div>
 		</div>
 	</div>
+	{{/match}}
 	<div class="post-content{{^if access}} global-no-access{{/if}}">
 		{{#if access}}
 		{{content}}

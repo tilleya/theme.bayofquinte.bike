@@ -1,7 +1,5 @@
 <div id="pinned" class="pinned-section">
 	<div class="pinned-wrap">
-	<div class="pinned-item"><iframe src="https://ridewithgps.com/embeds?type=event&eventId=224463&title=Featured%20Routes%3A%20July&description=Get%20out%20there%20and%20ride!&metricUnits=true&distanceMarkers=true&hideSurface=true&defaultShowAll=true" style="width: 1px; min-width: 100%; height: 550px; border: none;" scrolling="no"></iframe>
-	</div>
 		{{#get "pages" limit="2" filter="featured:true" as |pinned_pages|}}
 		{{#if pinned_pages}}
 		<div class="pinned-items{{#if @site.cover_image}} is-cover{{/if}}">
@@ -10,7 +8,7 @@
 				<a href="{{url}}" class="global-link" aria-label="pinned {{title}}"></a>
 				{{#if feature_image}}
 				<div class="pinned-image global-image">
-					{{>images/loop_feature_img}}
+					{{>images/loop_feature_img is_pinned=true}}
 				</div>
 				{{/if}}
 				<div class="pinned-content">
@@ -29,10 +27,11 @@
 				<a href="{{url}}" class="global-link" aria-label="pinned {{title}}"></a>
 				{{#if feature_image}}
 				<div class="pinned-image global-image">
-					{{>images/loop_feature_img}}
+					{{>images/loop_feature_img is_pinned=true}}
 				</div>
 				{{/if}}
 				<div class="pinned-content">
+					{{#if @custom.show_author}}
 					<div class="pinned-meta global-meta">
 						{{#has author="count:1"}}
 						{{authors}}
@@ -43,6 +42,7 @@
 						{{t "and others"}}
 						{{/has}}
 					</div>
+					{{/if}}
 					<h3 class="pinned-title">{{title}}</h3>
 					{{^if feature_image}}
 					{{^if custom_excerpt}}
@@ -66,7 +66,7 @@
 	</div>
 	{{#if @site.cover_image}}
 	<div class="pinned-cover global-image">
-		{{>images/site_cover_img}}
+		{{>images/site_cover_img is_cover=true}}
 	</div>
 	{{/if}}
 </div>

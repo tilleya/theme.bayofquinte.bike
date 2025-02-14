@@ -13,8 +13,10 @@
 			<div class="custom-content">
 				<form data-members-form="signup" data-members-autoredirect="false">
 					<h3>{{title}}</h3>
+					{{#if @site.portal_name}}
 					<input data-members-name type="text" placeholder="{{t "Your name"}}" aria-label="{{t "Your name"}}" required>
 					<span class="input-underline"></span>
+					{{/if}}
 					<input data-members-email type="email" placeholder="{{t "Your email address"}}" aria-label="{{t "Your email address"}}" required>
 					<span class="input-underline"></span>
 					<button class="global-button" type="submit">{{t "Continue"}}</button>

@@ -1,13 +1,29 @@
-{{! Detailed instructions can be found in the Documentation >> Activation >> Special sections }}
-
-{{!--
+{{#match @custom.tag_for_special_section}}
 <div class="special-section">
 	<div class="global-heading">
-		<h3>XXXXX</h3>
-		<a href="{{@site.url}}/tag/XXXXX/">See all XXXXX{{>icons/site/arrow_right}}</a>
+		{{#get "tags" limit="1" filter="slug:[{{@custom.tag_for_special_section}}]"}}
+		{{#foreach tags}}
+		<h3>{{name}}</h3>
+		<a href="{{url}}">{{t "See all {primary-tag}" primary-tag=name}}{{>icons/site/arrow_right}}</a>
+		{{/foreach}}
+		{{/get}}
 	</div>
-	{{#get "posts" limit="5" filter="tag:XXXXX" include="authors,tiers"}}
+	{{#get "posts" limit="5" filter="tag:[{{@custom.tag_for_special_section}}]" include="authors,tags"}}
 	{{>sections_content}}
 	{{/get}}
 </div>
---}}
+{{else}}
+{{#foreach posts limit="1"}}
+{{#if primary_tag}}
+<div class="special-section">
+	<div class="global-heading">
+		<h3>{{primary_tag.name}}</h3>
+		<a href="{{primary_tag.url}}">{{t "See all {primary-tag}" primary-tag=primary_tag.name}}{{>icons/site/arrow_right}}</a>
+	</div>
+	{{#get "posts" limit="5" filter="tag:{{primary_tag.slug}}+id:-{{id}}" include="authors,tags"}}
+	{{>sections_content}}
+	{{/get}}
+</div>
+{{/if}}
+{{/foreach}}
+{{/match}}

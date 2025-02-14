@@ -11,6 +11,7 @@
 				{{/if}}
 				<div class="special-item-content loop-item-content">
 					{{>members/visibility_label}}
+					{{#if @custom.show_author}}
 					<div class="special-item-meta loop-item-meta global-meta">
 						{{#has author="count:1"}}
 						{{authors}}
@@ -21,6 +22,7 @@
 						{{t "and others"}}
 						{{/has}}
 					</div>
+					{{/if}}
 					<h2 class="special-item-title loop-item-title global-title">
 					<a href="{{url}}" class="global-underline">{{title}}</a>
 					</h2>

@@ -18,7 +18,8 @@
 				{{/if}}
 				<h1 class="post-title global-title">{{title}}</h1>
 				<div class="global-meta">
-					<time datetime="{{date format="YYYY-MM-DD"}}"> {{date published_at timeago="true"}}</time>
+					<time datetime="{{date format="YYYY-MM-DD"}}"> {{#if @custom.show_author}}{{date published_at timeago="true"}}{{else}}{{date published_at format="LL"}}{{/if}}</time>
+					{{#if @custom.show_author}}
 					{{t "by"}}
 					{{#has author="count:1"}}
 					{{authors}}
@@ -29,6 +30,7 @@
 					{{else has author="count:>3"}}
 					{{authors}}
 					{{/has}}
+					{{/if}}
 					&#8226; {{reading_time minute=(t "1 minute read") minutes=(t "% minutes read")}}
 				</div>
 				{{#if custom_excerpt}}
