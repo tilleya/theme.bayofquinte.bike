@@ -15,7 +15,7 @@
   --fs-subtext: 0.875rem; /* optional smaller subtext */
 
   /* Font families (example) */
-  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: --font-family-secondary;
 
   /* Existing color vars (tweak or expand as desired) */
   --clr-light: #a9af90;
@@ -78,7 +78,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-family-secondary);
   font-size: 1rem;
   color: var(--clr-white);
 }
@@ -149,7 +149,7 @@
 /***************************************
   Responsive: stack grid into a single column
 ***************************************/
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .route-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
