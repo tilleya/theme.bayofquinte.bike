@@ -35,14 +35,10 @@
   width: 100vw;
   max-width: 1200px;
 
-  /* The usual trick for centering a block in its parent */
-  margin: 0 auto;
-
-  /* If a parent or theme is forcing a float or position, override it */
-  float: none !important;
-  position: static !important;
-  left: auto !important;
-  right: auto !important;
+  margin-left: min(-1em, (100vw - 800px) / -2);
+  margin-right: min(-1em, (100vw - 800px) / -2);
+  padding-left: max(1em, (100vw - 800px) / 2);
+  padding-right: max(1em, (100vw - 800px) / 2);
 }
 /***************************************
   Stats grid with explicit row names
