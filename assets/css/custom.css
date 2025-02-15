@@ -30,10 +30,12 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 20px;
-  width: 150%;      /* or 100% to fill the parent container */
+  width: 100vw;      /* or 100% to fill the parent container */
   max-width: 1200px; /* optional cap for very large screens */
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);     /* center it horizontally */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;    /* center it horizontally */
 }
 
 /***************************************
