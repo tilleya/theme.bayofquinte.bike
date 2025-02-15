@@ -37,7 +37,7 @@
 }
 .route-grid > * {
   /* They’ll be at least 300px tall, ideally scale to 50vh, but not exceed 700px */
-  height: clamp(300px, 50vh, 700px);
+  height: clamp(300px, 30vh, 500px);
 }
 
 /***************************************
