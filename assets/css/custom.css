@@ -41,6 +41,7 @@
   /* width: 100%; */
   /* Remove any conflicting fixed height settings */
   height: clamp(300px, 30vh, 480px);
+  overflow-y: auto;
 }
 
 /***************************************
