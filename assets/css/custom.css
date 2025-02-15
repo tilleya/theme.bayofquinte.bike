@@ -26,15 +26,24 @@
 /***************************************
   Outer grid: stats on one side, iframe on the other
 ***************************************/
-.route-grid {
+..route-grid {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 20px;
-  width: 80vw;      /* or 100% to fill the parent container */
-  max-width: 1200px; /* optional cap for very large screens */
-  left: calc(-50vw + 50%);  /* center it horizontally */
-}
 
+  /* Set an explicit width (or max-width) so auto margins can center it */
+  width: 80vw;
+  max-width: 1200px;
+
+  /* The usual trick for centering a block in its parent */
+  margin: 0 auto;
+
+  /* If a parent or theme is forcing a float or position, override it */
+  float: none !important;
+  position: static !important;
+  left: auto !important;
+  right: auto !important;
+}
 /***************************************
   Stats grid with explicit row names
 ***************************************/
