@@ -129,11 +129,11 @@
 .icon-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(8px, 10px, 16px);
 }
 .icon-container span {
-  width: clamp(16px, 2.5vw, 32px);
-  height: clamp(16px, 2.5vw, 32px);
+  width: clamp(14px, 2.5vw, 32px);
+  height: clamp(14px, 2.5vw, 32px);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
