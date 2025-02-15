@@ -30,7 +30,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 20px;
-  width: 100vw;      /* or 100% to fill the parent container */
+  width: 80vw;      /* or 100% to fill the parent container */
   max-width: 1200px; /* optional cap for very large screens */
   left: 50%;
   right: 50%;
