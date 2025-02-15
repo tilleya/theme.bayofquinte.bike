@@ -21,9 +21,9 @@
   --clr-light: #a9af90;
   --clr-dark: #85937a;
   --clr-white: #ffffff;
-  
-  /* Fluid gutter values for full-bleed */
-  --side-gutter: clamp(20px, 5vw, 65px);
+    --side-gutter: clamp(20px, 5vw, 65px);
+
+  /* For the “wide” version, allow a larger gutter */
   --wide-side-gutter: clamp(0px, 10vw, 140px);
 }
 
@@ -32,9 +32,7 @@
 ***************************************/
 .route-grid {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  /* Assign grid areas for the two children */
-  grid-template-areas: "stats map";
+  grid-template-columns: 1.5fr 2.5fr;
   gap: 16px;
 }
 
@@ -45,6 +43,7 @@
   position: relative;
   left: 50%;
   right: 50%;
+  /* Use the fluid gutter value in our calc */
   width: calc(100vw - (2 * var(--side-gutter)));
   margin-left: calc(-50vw + var(--side-gutter));
   margin-right: calc(-50vw + var(--side-gutter));
@@ -61,16 +60,8 @@
   max-width: none;
 }
 
-/* IMPORTANT: assign grid areas to the child elements */
-.route-stats {
-  grid-area: stats;
-}
-.post-content-iframe {
-  grid-area: map;
-}
-
 /***************************************
-  Stats grid with explicit row names (subgrid)
+  Stats grid with explicit row names
 ***************************************/
 .route-stats {
   display: grid;
@@ -152,11 +143,11 @@
   Iframe area styling (remains unchanged)
 ***************************************/
 .post-content-iframe {
-  /* Your existing styles for the map iframe */
+  /* remains as before */
 }
 
 /***************************************
-  Responsive: stack grid into a single column on small screens
+  Responsive: stack grid into a single column
 ***************************************/
 @media (max-width: 768px) {
   .route-grid {
@@ -165,6 +156,17 @@
       "stats"
       "map";
   }
+  .route-stats {
+  display: grid;
+  grid-template-columns: [title] 1fr [value] 1fr;
+  grid-template-areas:
+    "challenge-level challenge-level"
+    "distance elevation-gain"
+    "paved dirt"
+    "physical-difficulty technical-difficulty"
+  margin: 0;
+  padding: 0;
+}
 }
  .route-stats .list-item .pepper {
   background-image: url('data:image/webp;base64,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');
