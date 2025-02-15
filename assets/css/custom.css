@@ -32,10 +32,7 @@
   gap: 20px;
   width: 80vw;      /* or 100% to fill the parent container */
   max-width: 1200px; /* optional cap for very large screens */
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;    /* center it horizontally */
+  left: calc(-50vw + 50%);  /* center it horizontally */
 }
 
 /***************************************
