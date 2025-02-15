@@ -5,13 +5,13 @@
 ---------------------------------------------------------*/
 :root {
   /* Spacing scale */
-  --spacing-sm: 0.5rem;
-  --spacing-md: 1rem;
-  --spacing-lg: 1.5rem;
+  --spacing-sm: 0.3rem;
+  --spacing-md: 0.8rem;
+  --spacing-lg: 1.3rem;
 
   /* Font sizes */
-  --fs-label: 1.75rem;    /* e.g., small text for labels */
-  --fs-value: 2.5rem;     /* e.g., large text for main value */
+  --fs-label: 1.25rem;    /* e.g., small text for labels */
+  --fs-value: 2rem;     /* e.g., large text for main value */
   --fs-subtext: 0.875rem; /* optional smaller subtext */
 
   /* Font families (example) */
@@ -24,7 +24,7 @@
     --side-gutter: clamp(20px, 5vw, 65px);
 
   /* For the “wide” version, allow a larger gutter */
-  --wide-side-gutter: clamp(0px, 10vw, 140px);
+  --wide-side-gutter: clamp(0px, 8vw, 120px);
 }
 
 /***************************************
@@ -137,8 +137,8 @@
   gap: clamp(8px, 10px, 16px);
 }
 .icon-container span {
-  width: clamp(14px, 2.5vw, 32px);
-  height: clamp(14px, 2.5vw, 32px);
+  width: clamp(14px, 2.5vw, 24px);
+  height: clamp(14px, 2.5vw, 24px);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
