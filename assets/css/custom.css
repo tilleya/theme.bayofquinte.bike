@@ -1,5 +1,28 @@
 
 
+/* -------------------------------------------------------
+   Root variables for typography, spacing, and colors
+---------------------------------------------------------*/
+:root {
+  /* Spacing scale */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+
+  /* Font sizes */
+  --fs-label: 0.75rem;    /* e.g., small text for labels */
+  --fs-value: 1.5rem;     /* e.g., large text for main value */
+  --fs-subtext: 0.875rem; /* optional smaller subtext */
+
+  /* Font families (example) */
+  --font-sans: 'Helvetica Neue', Arial, sans-serif;
+
+  /* Existing color vars (tweak or expand as desired) */
+  --clr-light: #a9af90;
+  --clr-dark: #85937a;
+  --clr-white: #ffffff;
+}
+
 /***************************************
   Outer grid: stats on one side, iframe on the other
 ***************************************/
@@ -20,32 +43,45 @@
   /* Define a row for each stat by name */
   grid-template-areas:
     "challenge-level challenge-level"
-    "elevation-gain distance"
-    "paved dirt"
-    "physical-difficulty technical-difficulty";
-  row-gap: 10px;
-  
+    "elevation-gain elevation-gain"
+    "distance distance"
+    "paved paved"
+    "dirt dirt"
+    "physical-difficulty physical-difficulty"
+    "technical-difficulty technical-difficulty";
+  row-gap: var(--spacing-md);
+
   list-style: none;
   margin: 0;
   padding: 0;
-  --clr-light: #a9af90;
-  --clr-dark: #85937a;
-  --clr-white: #ffffff;
-}
 
-/* Each list-item becomes a grid row that gets its area from its class */
-.list-item {
-  display: grid;
-  grid-template-columns: subgrid; /* inherits [title] and [value] from .route-stats */
-  gap: 10px;
-  border-bottom: 2px solid var(--clr-dark);
-  padding: 10px 20px;
+  /* Base font settings */
+  font-family: var(--font-sans);
+  font-size: 1rem; /* default body size */
   color: var(--clr-white);
-  font-size: 18px;
-  border-radius: 4px;
 }
 
-/* Assign each row a grid area */
+/***************************************
+  Each list-item: now styled as a "card"
+***************************************/
+.list-item {
+  /* Using flex or grid; here, flex for easy centering */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  /* “Card” style box */
+  background-color: var(--clr-dark);
+  border-radius: 8px;
+  padding: var(--spacing-md);
+  /* Remove the old bottom border if you want a clean card look */
+  border-bottom: none;
+
+  gap: var(--spacing-sm);
+}
+
+/* Assign each row a grid area (unchanged) */
 .list-item.challenge-level       { grid-area: challenge-level; }
 .list-item.elevation-gain        { grid-area: elevation-gain; }
 .list-item.distance              { grid-area: distance; }
@@ -54,23 +90,43 @@
 .list-item.physical-difficulty   { grid-area: physical-difficulty; }
 .list-item.technical-difficulty  { grid-area: technical-difficulty; }
 
-/* Alternate backgrounds for visual differentiation */
+/* 
+   If you still want alternating colors, 
+   uncomment these (or change background-color above):
+*/
+/*
 .list-item:nth-child(odd) {
   background-color: var(--clr-light);
 }
 .list-item:nth-child(even) {
   background-color: var(--clr-dark);
 }
+*/
 
-/* Place title and value into their respective columns */
+/***************************************
+  Typography inside each card
+***************************************/
+
+/* The “title” field, e.g. “Challenge Level” */
 .list-title {
-  grid-column: title;
-}
-.list-item > div {
-  grid-column: value;
+  font-size: var(--fs-label);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  opacity: 0.9;
 }
 
-/* Icon container styling */
+/* The main “value” field, e.g. “340m” */
+.list-item > div {
+  /* Previously grid-column: value; 
+     now just used for the main stat number or text. */
+  font-size: var(--fs-value);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/***************************************
+  Icon container styling
+***************************************/
 .icon-container {
   display: flex;
   align-items: center;
