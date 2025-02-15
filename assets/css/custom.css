@@ -35,10 +35,10 @@
   width: 960px;
   max-width: 1200px;
 
-  margin-left: min(-1em, (100vw - 960px) / -2);
-  margin-right: min(-1em, (100vw - 960px) / -2);
-  padding-left: max(1em, (100vw - 960px) / 2);
-  padding-right: max(1em, (100vw - 960px) / 2);
+  margin-left: min(-1em, (100vw) / -2);
+  margin-right: min(-1em, (100vw) / -2);
+  padding-left: max(1em, (100vw) / 2);
+  padding-right: max(1em, (100vw) / 2);
 }
 
 /* Full-bleed route-grid inside .post-content */
@@ -49,8 +49,8 @@
   /* On desktop, fill nearly the entire viewport width,
      minus some padding for side margins (like 65px). */
   width: calc(100vw - 65px - 65px);
-  margin-right: calc(-50vw + 65px);
-  margin-left: calc(-50vw + 65px);
+  margin-right: calc(-50vw);
+  margin-left: calc(-50vw);
 
   /* Let it expand beyond normal container constraints */
   max-width: none;
@@ -63,8 +63,8 @@
   left: 50%;
   /* Adjust the “140px” padding to match your theme’s wide image spacing */
   width: calc(100vw - 140px - 140px);
-  margin-right: calc(-50vw + 140px);
-  margin-left: calc(-50vw + 140px);
+  margin-right: calc(-50vw + 0px);
+  margin-left: calc(-50vw + 0px);
   max-width: none;
 }
 
