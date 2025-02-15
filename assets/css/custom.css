@@ -35,10 +35,11 @@
   grid-template-columns: 1.5fr 2.5fr;
   gap: 16px;
 }
-/* Force matching height for both stats and iframe when side by side */
 .route-grid > .route-stats,
 .route-grid > .post-content-iframe {
-  height: clamp(300px, 50vh, 700px);
+  aspect-ratio: 2 / 1;
+  /* width: 100%; */
+  /* Remove any conflicting fixed height settings */
 }
 
 /***************************************
