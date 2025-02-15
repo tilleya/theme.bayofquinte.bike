@@ -20,12 +20,9 @@
   /* Define a row for each stat by name */
   grid-template-areas:
     "challenge-level challenge-level"
-    "elevation-gain elevation-gain"
-    "distance distance"
-    "paved paved"
-    "dirt dirt"
-    "physical-difficulty physical-difficulty"
-    "technical-difficulty technical-difficulty";
+    "elevation-gain distance"
+    "paved dirt"
+    "physical-difficulty technical-difficulty";
   row-gap: 10px;
   
   list-style: none;
