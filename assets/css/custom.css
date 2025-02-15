@@ -32,13 +32,13 @@
   gap: 20px;
 
   /* Set an explicit width (or max-width) so auto margins can center it */
-  width: 720px;
+  width: 960px;
   max-width: 1200px;
 
-  margin-left: min(-1em, (100vw - 720px) / -2);
-  margin-right: min(-1em, (100vw - 720px) / -2);
-  padding-left: max(1em, (100vw - 720px) / 2);
-  padding-right: max(1em, (100vw - 720px) / 2);
+  margin-left: min(-1em, (100vw - 960px) / -2);
+  margin-right: min(-1em, (100vw - 960px) / -2);
+  padding-left: max(1em, (100vw - 960px) / 2);
+  padding-right: max(1em, (100vw - 960px) / 2);
 }
 /***************************************
   Stats grid with explicit row names
