@@ -21,6 +21,10 @@
   --clr-light: #a9af90;
   --clr-dark: #85937a;
   --clr-white: #ffffff;
+    --side-gutter: clamp(20px, 5vw, 65px);
+
+  /* For the “wide” version, allow a larger gutter */
+  --wide-side-gutter: clamp(0px, 10vw, 140px);
 }
 
 /***************************************
@@ -30,56 +34,38 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 20px;
-
 }
 
-/* Full-bleed route-grid inside .post-content */
+/***************************************
+  Full-bleed route-grid inside .post-content using clamp
+***************************************/
 .post-content .route-grid.kg-width-full {
   position: relative;
-  right: 50%;
   left: 50%;
-  /* On desktop, fill nearly the entire viewport width,
-     minus some padding for side margins (like 65px). */
-  width: calc(100vw - 65px - 65px);
-  margin-right: calc(-50vw);
-  margin-left: calc(-50vw);
-
-  /* Let it expand beyond normal container constraints */
+  right: 50%;
+  /* Use the fluid gutter value in our calc */
+  width: calc(100vw - (2 * var(--side-gutter)));
+  margin-left: calc(-50vw + var(--side-gutter));
+  margin-right: calc(-50vw + var(--side-gutter));
   max-width: none;
 }
 
-/* Slightly narrower "wide" version, if you prefer */
 .post-content .route-grid.kg-width-wide {
   position: relative;
-  right: 50%;
   left: 50%;
-  /* Adjust the “140px” padding to match your theme’s wide image spacing */
-  width: calc(100vw - 140px - 140px);
-  margin-right: calc(-50vw + 0px);
-  margin-left: calc(-50vw + 0px);
+  right: 50%;
+  width: calc(100vw - (2 * var(--wide-side-gutter)));
+  margin-left: calc(-50vw + var(--wide-side-gutter));
+  margin-right: calc(-50vw + var(--wide-side-gutter));
   max-width: none;
 }
 
-/* Tweak breakpoints to match your theme’s approach */
-@media (max-width: 480px) {
-  .post-content .route-grid.kg-width-full,
-  .post-content .route-grid.kg-width-wide {
-    /* For very small screens, you can revert to 100% width to avoid horizontal scroll */
-    width: 100vw;
-    margin-right: -50vw;
-    margin-left: -50vw;
-    /* Optionally remove border-radius if you want truly edge-to-edge */
-    border-radius: 0;
-  }
-}
 /***************************************
   Stats grid with explicit row names
 ***************************************/
 .route-stats {
   display: grid;
-  /* Two columns: one for title, one for value */
   grid-template-columns: [title] 1fr [value] 1fr;
-  /* Define a row for each stat by name */
   grid-template-areas:
     "challenge-level challenge-level"
     "elevation-gain elevation-gain"
@@ -89,38 +75,30 @@
     "physical-difficulty physical-difficulty"
     "technical-difficulty technical-difficulty";
   row-gap: var(--spacing-md);
-
   list-style: none;
   margin: 0;
   padding: 0;
-
-  /* Base font settings */
   font-family: var(--font-sans);
-  font-size: 1rem; /* default body size */
+  font-size: 1rem;
   color: var(--clr-white);
 }
 
 /***************************************
-  Each list-item: now styled as a "card"
+  Each list-item styled as a "card"
 ***************************************/
 .list-item {
-  /* Using flex or grid; here, flex for easy centering */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  /* “Card” style box */
   background-color: var(--clr-dark);
   border-radius: 8px;
   padding: var(--spacing-md);
-  /* Remove the old bottom border if you want a clean card look */
   border-bottom: none;
-
   gap: var(--spacing-sm);
 }
 
-/* Assign each row a grid area (unchanged) */
+/* Assign grid areas for each stat row */
 .list-item.challenge-level       { grid-area: challenge-level; }
 .list-item.elevation-gain        { grid-area: elevation-gain; }
 .list-item.distance              { grid-area: distance; }
@@ -129,24 +107,9 @@
 .list-item.physical-difficulty   { grid-area: physical-difficulty; }
 .list-item.technical-difficulty  { grid-area: technical-difficulty; }
 
-/* 
-   If you still want alternating colors, 
-   uncomment these (or change background-color above):
-*/
-/*
-.list-item:nth-child(odd) {
-  background-color: var(--clr-light);
-}
-.list-item:nth-child(even) {
-  background-color: var(--clr-dark);
-}
-*/
-
 /***************************************
   Typography inside each card
 ***************************************/
-
-/* The “title” field, e.g. “Challenge Level” */
 .list-title {
   font-size: var(--fs-label);
   text-transform: uppercase;
@@ -154,10 +117,7 @@
   opacity: 0.9;
 }
 
-/* The main “value” field, e.g. “340m” */
 .list-item > div {
-  /* Previously grid-column: value; 
-     now just used for the main stat number or text. */
   font-size: var(--fs-value);
   font-weight: 600;
   line-height: 1.2;
@@ -183,7 +143,7 @@
   Iframe area styling (remains unchanged)
 ***************************************/
 .post-content-iframe {
-  /* automatically goes into the second column of .route-grid */
+  /* remains as before */
 }
 
 /***************************************
