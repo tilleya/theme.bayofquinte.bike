@@ -10,8 +10,8 @@
   --spacing-lg: 1.5rem;
 
   /* Font sizes */
-  --fs-label: 0.75rem;    /* e.g., small text for labels */
-  --fs-value: 1.5rem;     /* e.g., large text for main value */
+  --fs-label: 1.75rem;    /* e.g., small text for labels */
+  --fs-value: 2.5rem;     /* e.g., large text for main value */
   --fs-subtext: 0.875rem; /* optional smaller subtext */
 
   /* Font families (example) */
@@ -21,9 +21,9 @@
   --clr-light: #a9af90;
   --clr-dark: #85937a;
   --clr-white: #ffffff;
-    --side-gutter: clamp(20px, 5vw, 65px);
-
-  /* For the “wide” version, allow a larger gutter */
+  
+  /* Fluid gutter values for full-bleed */
+  --side-gutter: clamp(20px, 5vw, 65px);
   --wide-side-gutter: clamp(0px, 10vw, 140px);
 }
 
@@ -33,7 +33,9 @@
 .route-grid {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  gap: 20px;
+  /* Assign grid areas for the two children */
+  grid-template-areas: "stats map";
+  gap: 16px;
 }
 
 /***************************************
@@ -43,7 +45,6 @@
   position: relative;
   left: 50%;
   right: 50%;
-  /* Use the fluid gutter value in our calc */
   width: calc(100vw - (2 * var(--side-gutter)));
   margin-left: calc(-50vw + var(--side-gutter));
   margin-right: calc(-50vw + var(--side-gutter));
@@ -60,8 +61,16 @@
   max-width: none;
 }
 
+/* IMPORTANT: assign grid areas to the child elements */
+.route-stats {
+  grid-area: stats;
+}
+.post-content-iframe {
+  grid-area: map;
+}
+
 /***************************************
-  Stats grid with explicit row names
+  Stats grid with explicit row names (subgrid)
 ***************************************/
 .route-stats {
   display: grid;
@@ -143,11 +152,11 @@
   Iframe area styling (remains unchanged)
 ***************************************/
 .post-content-iframe {
-  /* remains as before */
+  /* Your existing styles for the map iframe */
 }
 
 /***************************************
-  Responsive: stack grid into a single column
+  Responsive: stack grid into a single column on small screens
 ***************************************/
 @media (max-width: 768px) {
   .route-grid {
