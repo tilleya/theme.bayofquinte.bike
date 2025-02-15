@@ -40,6 +40,46 @@
   padding-left: max(1em, (100vw - 960px) / 2);
   padding-right: max(1em, (100vw - 960px) / 2);
 }
+
+/* Full-bleed route-grid inside .post-content */
+.post-content .route-grid.kg-width-full {
+  position: relative;
+  right: 50%;
+  left: 50%;
+  /* On desktop, fill nearly the entire viewport width,
+     minus some padding for side margins (like 65px). */
+  width: calc(100vw - 65px - 65px);
+  margin-right: calc(-50vw + 65px);
+  margin-left: calc(-50vw + 65px);
+
+  /* Let it expand beyond normal container constraints */
+  max-width: none;
+}
+
+/* Slightly narrower "wide" version, if you prefer */
+.post-content .route-grid.kg-width-wide {
+  position: relative;
+  right: 50%;
+  left: 50%;
+  /* Adjust the “140px” padding to match your theme’s wide image spacing */
+  width: calc(100vw - 140px - 140px);
+  margin-right: calc(-50vw + 140px);
+  margin-left: calc(-50vw + 140px);
+  max-width: none;
+}
+
+/* Tweak breakpoints to match your theme’s approach */
+@media (max-width: 480px) {
+  .post-content .route-grid.kg-width-full,
+  .post-content .route-grid.kg-width-wide {
+    /* For very small screens, you can revert to 100% width to avoid horizontal scroll */
+    width: 100vw;
+    margin-right: -50vw;
+    margin-left: -50vw;
+    /* Optionally remove border-radius if you want truly edge-to-edge */
+    border-radius: 0;
+  }
+}
 /***************************************
   Stats grid with explicit row names
 ***************************************/
