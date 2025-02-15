@@ -132,8 +132,8 @@
   gap: 10px;
 }
 .icon-container span {
-  width: 25px;
-  height: 25px;
+  width: clamp(16px, 2.5vw, 32px);
+  height: clamp(16px, 2.5vw, 32px);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
