@@ -83,7 +83,7 @@
     "technical-difficulty technical-difficulty";
   row-gap: var(--spacing-md);
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   font-family: var(--font-family-secondary);
   font-size: 1rem;
@@ -156,7 +156,7 @@
 /***************************************
   Responsive: stack grid into a single column
 ***************************************/
-@media (max-width: 767px) {
+@media (max-width: 768px) and (-webkit-device-pixel-ratio: 3) {
   .route-grid {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -171,8 +171,7 @@
     "distance elevation-gain"
     "paved dirt"
     "physical-difficulty technical-difficulty"
-  margin: 0;
-  padding: 0;
+ 
 }
 }
  .route-stats .list-item .pepper {
