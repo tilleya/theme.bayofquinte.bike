@@ -66,6 +66,18 @@
   margin-right: calc(-50vw + var(--wide-side-gutter));
   max-width: none;
 }
+ .post-content .route-grid ul,
+ .post-content .route-grid ol {
+    margin-right: 0;
+    margin-left: 0px;
+
+}
+
+.post-content .route-grid ul {
+    padding-left: 0px;
+    list-style: disc outside;
+
+}
 
 /***************************************
   Stats grid with explicit row names
@@ -172,18 +184,7 @@
     "paved dirt"
     "physical-difficulty technical-difficulty"
   }
- .post-content .route-grid ul,
- .post-content .route-grid ol {
-    margin-right: 0;
-    margin-left: 0px;
 
-}
-
-.post-content .route-grid ul {
-    padding-left: 0px;
-    list-style: disc outside;
-
-}
 
 }
  .route-stats .list-item .pepper {
