@@ -93,7 +93,7 @@
     "dirt dirt"
     "physical-difficulty physical-difficulty"
     "technical-difficulty technical-difficulty";
-  row-gap: var(--spacing-md);
+  gap: var(--spacing-md);
   list-style: none;
   margin: 0 auto;
   padding: 0;
