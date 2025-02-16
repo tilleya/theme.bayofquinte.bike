@@ -37,7 +37,7 @@
 }
 .route-grid > .route-stats,
 .route-grid > .post-content-iframe {
-  aspect-ratio: 1.8 / 1;
+  aspect-ratio: 1 / 1;
   /* width: 100%; */
   /* Remove any conflicting fixed height settings */
 
