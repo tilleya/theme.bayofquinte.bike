@@ -172,15 +172,15 @@
     "paved dirt"
     "physical-difficulty technical-difficulty"
   }
-  .route-grid ul,
-  .route-grid ol {
+ .post-content .route-grid ul,
+ .post-content .route-grid ol {
     margin-right: 0;
-    /* margin-left: 15px; */
+    margin-left: 0px;
 
 }
 
-.route-grid ul {
-    /* padding-left: 15px; */
+.post-content .route-grid ul {
+    padding-left: 0px;
     list-style: disc outside;
 
 }
