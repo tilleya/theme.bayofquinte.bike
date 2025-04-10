@@ -5514,29 +5514,117 @@ textarea::placeholder {
    padding: 15px 0;
 }
 
-.custom-content input {
-   font-size: 20px;
-   display: block;
-   width: 100%;
-   height: 30px;
-   margin: 30px auto 0;
-   padding: 20px 10px;
-   text-align: center;
-   word-break: break-all;
+/* Shadcn/UI Inspired Form Controls — Replace your current form control rules */
+
+/* Base styles for all form fields */
+.custom-content input,
+.custom-content select,
+.custom-content textarea,
+.custom-content input[type="range"],
+.custom-content button {
+  font-size: 20px;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-five);
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-body);
+  color: var(--color-font-one);
+  box-sizing: border-box;
+  text-align: center;
+  margin: 30px auto 0;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
+/* Focus state with a smooth ring effect */
+.custom-content input:focus,
+.custom-content select:focus,
+.custom-content textarea:focus,
+.custom-content input[type="range"]:focus,
+.custom-content button:focus {
+  outline: none;
+  border-color: var(--ghost-accent-color);
+  box-shadow: 0 0 0 2px var(--ghost-accent-color);
+}
+
+/* Select field – hide default arrow (optional customization) */
+.custom-content select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2210%22%20height%3D%225%22%3E%3Cpath%20fill%3D%22%23999%22%20d%3D%22M0%200l5%205l5-5z%22/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 10px 5px;
+}
+
+/* Textarea – allow vertical resizing */
+.custom-content textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+/* Range slider styling */
+.custom-content input[type="range"] {
+  -webkit-appearance: none;
+  height: 6px;
+  background-color: var(--color-five);
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  margin: 30px auto 0;
+}
+
+/* WebKit slider thumb */
+.custom-content input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: var(--ghost-accent-color);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Mozilla slider thumb */
+.custom-content input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: var(--ghost-accent-color);
+  cursor: pointer;
+}
+
+/* Button styling */
+.custom-content button {
+  cursor: pointer;
+  background-color: var(--ghost-accent-color);
+  color: var(--color-font-three);
+  font-weight: var(--font-weight-primary-regular);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  border: none;
+  margin-top: 30px;
+  transition: background-color 0.2s ease;
+}
+
+/* Button hover state */
+.custom-content button:hover {
+  background-color: var(--color-four);
+}
+
+/* Retain additional visual effects for input + span (if used for dynamic feedback) */
 .custom-content input + span {
-   display: block;
-   width: 100%;
-   height: 6px;
-   margin-bottom: 50px;
-   transition: background-color .15s ease;
-   border-radius: var(--border-radius-small);
-   background-color: var(--color-five);
+  display: block;
+  width: 100%;
+  height: 6px;
+  margin-bottom: 50px;
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-five);
+  transition: background-color 0.15s ease;
 }
 
 .custom-content input:focus + span {
-   background-color: var(--ghost-accent-color);
+  background-color: var(--ghost-accent-color);
 }
 
 /* Alert
@@ -5597,66 +5685,7 @@ textarea::placeholder {
    color: var(--color-font-one);
 }
 
-/* Optional: hover and focus behavior */
-.custom-content select:focus,
-.custom-content textarea:focus,
-.custom-content input[type="range"]:focus,
-.custom-content button:focus {
-   outline: none;
-   background-color: var(--color-five);
-}
 
-/* Range slider display */
-.custom-content input[type="range"] {
-   -webkit-appearance: none;
-   height: 6px;
-   background-color: var(--color-five);
-   border-radius: var(--border-radius-small);
-   cursor: pointer;
-}
-
-.custom-content input[type="range"]::-webkit-slider-thumb {
-   -webkit-appearance: none;
-   appearance: none;
-   height: 20px;
-   width: 20px;
-   background-color: var(--ghost-accent-color);
-   border-radius: 50%;
-   cursor: pointer;
-}
-
-.custom-content input[type="range"]::-moz-range-thumb {
-   height: 20px;
-   width: 20px;
-   background-color: var(--ghost-accent-color);
-   border: none;
-   border-radius: 50%;
-   cursor: pointer;
-}
-
-/* Textarea */
-.custom-content textarea {
-   resize: vertical;
-   min-height: 100px;
-   line-height: 1.5;
-}
-
-/* Submit button */
-.custom-content button {
-   cursor: pointer;
-   transition: background-color 0.2s ease;
-   background-color: var(--ghost-accent-color);
-   color: var(--color-font-three);
-   font-weight: var(--font-weight-primary-regular);
-   border: none;
-   padding: 15px;
-   text-transform: uppercase;
-   letter-spacing: 1px;
-}
-
-.custom-content button:hover {
-   background-color: var(--color-four);
-}
 
 /* Footer
    –––––––––––––––––––––––––––––––––––––––––––––––––––– */
