@@ -219,7 +219,7 @@
 .iframe-container {
   position: relative;
   overflow: hidden;
-  width: 90%;
+  width: 100%;
   padding-top: 28.125%;
 }
 .responsive-iframe {
@@ -228,7 +228,7 @@
   left: 0;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 90%;
   height: 100%;
   border: none;
   border-radius: 8px;
