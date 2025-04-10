@@ -222,9 +222,9 @@
   overflow: hidden;
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
-  /* Fade effect: fully opaque at the top (black) to transparent at the bottom */
-  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  /* Mask that stays opaque until 50%, then fades */
+  mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 50%, transparent 100%);
 }
 
 .responsive-iframe {
