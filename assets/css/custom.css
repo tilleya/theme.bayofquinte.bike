@@ -473,3 +473,117 @@ grid-area: Main;
     align-items: center;
   }
 }
+
+/* Container & Form Heading */
+.custom-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--color-body);
+  font-family: var(--font-family-primary);
+  box-sizing: border-box;
+}
+
+.custom-form h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--color-font-one);
+}
+
+/* Form Group - separates each question */
+.form-group {
+  margin-bottom: 24px; /* Clear separation between fields */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Label Styling */
+.form-group label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-font-one);
+}
+
+/* Input, Select, and Textarea Base Styles */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+  font-size: 16px;
+  padding: 12px;
+  border: 1px solid var(--color-five);
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-body);
+  color: var(--color-font-one);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+/* Focus State - subtle ring effect */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--ghost-accent-color);
+  box-shadow: 0 0 0 2px var(--ghost-accent-color);
+}
+
+/* Range Input Styling */
+.form-group input[type="range"] {
+  -webkit-appearance: none;
+  height: 6px;
+  background-color: var(--color-five);
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  margin: 12px 0; /* Slight spacing above/below slider */
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 20px;
+  width: 20px;
+  background-color: var(--ghost-accent-color);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.form-group input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  background-color: var(--ghost-accent-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Range Output Text */
+.range-output {
+  font-size: 14px;
+  margin-top: 8px;
+  color: var(--color-font-one);
+  text-align: center;
+}
+
+/* Button Styling */
+.custom-btn {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  background-color: var(--ghost-accent-color);
+  color: var(--color-font-three);
+  border: none;
+  border-radius: var(--border-radius-small);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.custom-btn:hover {
+  background-color: var(--color-four);
+}
