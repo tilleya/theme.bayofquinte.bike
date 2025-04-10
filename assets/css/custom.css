@@ -474,6 +474,7 @@ grid-area: Main;
   }
 }
 
+
 /* Container & Form Heading */
 .custom-form {
   max-width: 500px;
@@ -492,25 +493,24 @@ grid-area: Main;
   color: var(--color-font-one);
 }
 
-/* Form Group - separates each question */
+/* Form Group - ensures each question is distinct */
 .form-group {
-  margin-bottom: 24px; /* Clear separation between fields */
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
 }
 
-/* Label Styling */
+/* Label Styling - placing labels closer to inputs */
 .form-group label {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 4px;  /* Reduced to keep label close to input */
   color: var(--color-font-one);
 }
 
 /* Input, Select, and Textarea Base Styles */
 .form-group input[type="text"],
 .form-group input[type="email"],
-.form-group select,
 .form-group textarea {
   font-size: 16px;
   padding: 12px;
@@ -522,7 +522,21 @@ grid-area: Main;
   box-sizing: border-box;
 }
 
-/* Focus State - subtle ring effect */
+/* Dropdown (Select) Specific Styling */
+.form-group select {
+  font-size: 16px;
+  padding: 14px; /* Extra padding for a more comfortable click area */
+  border: 1px solid var(--color-five);
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-body);
+  color: var(--color-font-one);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  /* Remove any gradient effect */
+  background-image: none;
+}
+
+/* Focus State for all inputs/selects/textarea */
 .form-group input[type="text"]:focus,
 .form-group input[type="email"]:focus,
 .form-group select:focus,
@@ -539,7 +553,7 @@ grid-area: Main;
   background-color: var(--color-five);
   border-radius: var(--border-radius-small);
   cursor: pointer;
-  margin: 12px 0; /* Slight spacing above/below slider */
+  margin: 12px 0;
 }
 
 .form-group input[type="range"]::-webkit-slider-thumb {
