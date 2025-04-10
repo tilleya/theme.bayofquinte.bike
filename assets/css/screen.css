@@ -5436,7 +5436,7 @@ textarea::placeholder {
    flex: 1 0 auto;
    justify-content: center;
    width: 100%;
-   max-width: 900px;
+   max-width: 720px;
    margin: 6vh auto 8vh;
    padding: 0 20px;
 }
