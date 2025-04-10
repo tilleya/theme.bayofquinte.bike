@@ -11,27 +11,9 @@
 			<div class="custom-header">
 				<a href="{{@site.url}}">{{>icons/site/arrow_left}}{{t "Back to homepage"}}</a>
 			</div>
-			<div class="post-content{{^if access}} global-no-access{{/if}}">
-			{{#if access}}
-			{{content}}
-			{{else}}
-			{{#if html}}
-			<div class="members-teaser">
-				{{{html}}}
-			</div>
-			{{/if}}
-			{{>members/cta}}
-			{{/if}}
-			</div>
+			
 			<div class="custom-content">
-				<div class="post-content{{^if access}} global-no-access{{/if}}">
-			{{#if access}}
-			{{content}}
-			{{else}}
-			{{#if html}}
-			<div class="members-teaser">
-				{{{html}}}
-			</div>
+				{{content}}
 			</div>
 			{{#if @site.description}}
 			<div class="custom-footer">
