@@ -5580,6 +5580,83 @@ textarea::placeholder {
    font-size: 17px;
    padding-bottom: 20px;
 }
+.custom-content select,
+.custom-content textarea,
+.custom-content input[type="range"],
+.custom-content button {
+   font-size: 20px;
+   display: block;
+   width: 100%;
+   margin: 30px auto 0;
+   padding: 20px 10px;
+   box-sizing: border-box;
+   text-align: center;
+   border: none;
+   border-radius: var(--border-radius-small);
+   background-color: var(--color-body);
+   color: var(--color-font-one);
+}
+
+/* Optional: hover and focus behavior */
+.custom-content select:focus,
+.custom-content textarea:focus,
+.custom-content input[type="range"]:focus,
+.custom-content button:focus {
+   outline: none;
+   background-color: var(--color-five);
+}
+
+/* Range slider display */
+.custom-content input[type="range"] {
+   -webkit-appearance: none;
+   height: 6px;
+   background-color: var(--color-five);
+   border-radius: var(--border-radius-small);
+   cursor: pointer;
+}
+
+.custom-content input[type="range"]::-webkit-slider-thumb {
+   -webkit-appearance: none;
+   appearance: none;
+   height: 20px;
+   width: 20px;
+   background-color: var(--ghost-accent-color);
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+.custom-content input[type="range"]::-moz-range-thumb {
+   height: 20px;
+   width: 20px;
+   background-color: var(--ghost-accent-color);
+   border: none;
+   border-radius: 50%;
+   cursor: pointer;
+}
+
+/* Textarea */
+.custom-content textarea {
+   resize: vertical;
+   min-height: 100px;
+   line-height: 1.5;
+}
+
+/* Submit button */
+.custom-content button {
+   cursor: pointer;
+   transition: background-color 0.2s ease;
+   background-color: var(--ghost-accent-color);
+   color: var(--color-font-three);
+   font-weight: var(--font-weight-primary-regular);
+   border: none;
+   padding: 15px;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+
+.custom-content button:hover {
+   background-color: var(--color-four);
+}
 
 /* Footer
    –––––––––––––––––––––––––––––––––––––––––––––––––––– */
