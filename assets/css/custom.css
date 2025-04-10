@@ -523,7 +523,10 @@ grid-area: Main;
 }
 
 /* Dropdown (Select) Specific Styling */
+/* Dropdown (Select) Specific Styling with Safari Fix */
 .form-group select {
+  -webkit-appearance: none; /* Safari & other WebKit browsers */
+  appearance: none;
   font-size: 16px;
   padding: 14px; /* Extra padding for a more comfortable click area */
   border: 1px solid var(--color-five);
@@ -532,9 +535,9 @@ grid-area: Main;
   color: var(--color-font-one);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   box-sizing: border-box;
-  /* Remove any gradient effect */
-  background-image: none;
+
 }
+
 
 /* Focus State for all inputs/selects/textarea */
 .form-group input[type="text"]:focus,
