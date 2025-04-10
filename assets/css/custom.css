@@ -216,25 +216,15 @@
         }
         
 /* responsive iFrame */
-/* responsive iFrame */
+/* responsive iFrame with gradient fade */
 .iframe-container {
   position: relative;
   overflow: hidden;
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
-  border-radius: 10px;  /* Rounded corners on the container */
-}
-
-/* Bottom gradient overlay to hide content below until scrolled into view */
-.iframe-container::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 50px; /* Adjust height as desired */
-  pointer-events: none; /* Allows interaction with the iframe */
-  background: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+  /* Fade effect: fully opaque at the top (black) to transparent at the bottom */
+  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
 .responsive-iframe {
@@ -245,8 +235,9 @@
   right: 0;
   width: 100%;
   height: 100%;
-  border: none;          /* Removes any border */
-  border-radius: 10px;     /* Consistent rounded corners */
+  border: none;
+  border-radius: 10px; /* Optional: keeps rounded corners */
+}
 /* Grid Layout */
 .hero-sponsor-grid {
   display: grid;
