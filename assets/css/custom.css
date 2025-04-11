@@ -621,24 +621,25 @@ grid-area: Main;
   }
 }
 
-/*
-  Label wraps the checkbox + content (makes the entire card clickable).
-*/
-.route-option {
-  position: relative; /* For positioning pseudo-elements if needed */
+/* Grid Layout (1 column on narrow, 2 columns on wider screens) */
+.route-options-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Single column by default */
+  gap: 16px;
 }
 
-/* 
-  Hide the actual checkbox so we can use a custom style.
-*/
+@media (min-width: 600px) {
+  .route-options-grid {
+    grid-template-columns: 1fr 1fr; /* Two columns on wider screens */
+  }
+}
+
+/* Hide the native checkbox and treat the entire label as clickable */
 .route-option input[type="checkbox"] {
   display: none;
 }
 
-/*
-  This .content span holds the “card” style. 
-  Its hover/checked states highlight the card and show selection feedback.
-*/
+/* Card-like container for each route */
 .route-option .content {
   border: 1px solid var(--color-five);
   border-radius: var(--border-radius-small);
@@ -649,44 +650,20 @@ grid-area: Main;
   flex-direction: column;
 }
 
-/* On hover, give the card a highlight or box-shadow */
+/* Hover highlight */
 .route-option:hover .content {
   border-color: var(--ghost-accent-color);
   box-shadow: 0 0 0 2px var(--ghost-accent-color);
 }
 
-/* Style the route name */
-.route-option .route-name {
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: var(--color-font-one);
-}
-
-/* 
-  Style route details (e.g., distance + location) as a “data chip”
-  – typically a pill-shaped element with a contrasting background. 
-*/
-.route-option .route-details {
-  display: inline-block;
-  background-color: var(--ghost-accent-color);
-  color: #fff; /* Or var(--color-font-three) if you have a text variable */
-  font-size: 14px;
-  padding: 4px 8px;
-  border-radius: 9999px; /* Creates a pill shape */
-  margin-top: 4px;
-}
-
-/* When checkbox is checked, indicate selection with a highlight/overlay */
+/* Selected (checked) state */
 .route-option input[type="checkbox"]:checked + .content {
-  background-color: var(--ghost-accent-color-opacity, rgba(0, 0, 0, 0.05)); /* Example fallback */
+  background-color: var(--ghost-accent-color-opacity, rgba(0, 0, 0, 0.05));
   border-color: var(--ghost-accent-color);
   box-shadow: 0 0 0 2px var(--ghost-accent-color);
 }
 
-/* 
-  Optionally add a simple checkmark on the card 
-  when it’s selected.
-*/
+/* Optional checkmark for selected state */
 .route-option input[type="checkbox"]:checked + .content::after {
   content: "✓";
   position: absolute;
@@ -695,4 +672,46 @@ grid-area: Main;
   font-weight: bold;
   font-size: 1.2rem;
   color: var(--ghost-accent-color);
+}
+
+/* Route Name */
+.route-option .route-name {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--color-font-one);
+}
+
+/* 
+  Container for the chips. 
+  Keeps them on one line with some spacing.
+*/
+.route-option .route-chips {
+  display: flex;
+  gap: 8px;    /* Space between the chips */
+}
+
+/* 
+  Base chip styling 
+  (pills with a contrasting background).
+*/
+.route-option .chip {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 14px;
+  border-radius: 9999px; /* pill shape */
+  color: #fff;           /* or var(--color-font-three) */
+  background-color: var(--ghost-accent-color); 
+}
+
+/*
+  Separate color examples:
+  You can differentiate them if you like, e.g.,
+  one color for distance, another for location.
+*/
+.distance {
+  background-color: var(--color-distance-chip, #b23ce8);
+}
+
+.location {
+  background-color: var(--color-location-chip, #317773);
 }
