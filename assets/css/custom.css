@@ -503,6 +503,18 @@ grid-area: Main;
   /* Add any padding/margins you like for spacing */
 }
 
+@media (max-width: 768px) {
+  .custom-wrap-split {
+    flex-direction: column;
+  }
+
+  .custom-image-split,
+  .custom-container-split {
+    flex: auto;      /* Reset the fixed widths */
+    width: 100%;
+  }
+}
+
 /* Example of preserving your original content styling (optional) */
 .custom-container-split .custom-form {
   flex: 1 0 auto;
