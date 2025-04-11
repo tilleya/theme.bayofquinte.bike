@@ -5430,7 +5430,7 @@ textarea::placeholder {
 }
 
 .custom-container {
-   flex: 1 0 47%;
+   flex: 1 0 57%;
    flex-direction: column;
 }
 
@@ -5440,7 +5440,7 @@ textarea::placeholder {
    justify-content: center;
    width: 100%;
    max-width: 900px;
-   margin: 6vh auto 8vh;
+   margin: 3vh auto 8vh;
    padding: 0 20px;
 }
 
@@ -5455,7 +5455,7 @@ textarea::placeholder {
 /* Image
    –––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .custom-image {
-   flex: 1 0 53%;
+   flex: 1 0 43%;
 }
 
 /* Header

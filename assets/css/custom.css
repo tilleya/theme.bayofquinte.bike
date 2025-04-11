@@ -477,7 +477,7 @@ grid-area: Main;
 
 /* Container & Form Heading */
 .custom-form {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   background-color: var(--color-body);
@@ -628,7 +628,7 @@ grid-area: Main;
   gap: 16px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 480px) {
   .route-options-grid {
     grid-template-columns: 1fr 1fr; /* Two columns on wider screens */
   }
@@ -676,7 +676,7 @@ grid-area: Main;
 
 /* Route Name */
 .route-option .route-name {
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 8px;
   color: var(--color-font-one);
 }
@@ -697,7 +697,7 @@ grid-area: Main;
 .route-option .chip {
   display: inline-block;
   padding: 4px 8px;
-  font-size: 14px;
+  font-size: 1rem;
   border-radius: var(--border-radius-small);
   border: 1px solid var(--ghost-accent-color);
   color: #fff;           /* or var(--color-font-three) */
