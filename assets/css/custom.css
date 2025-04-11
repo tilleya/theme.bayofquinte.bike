@@ -627,6 +627,7 @@ grid-area: Main;
 
 /* Card-like container for each route */
 .route-option .content {
+  position: relative;
   border: 1px solid var(--color-five);
   border-radius: var(--border-radius-small);
   padding: 16px;
@@ -652,7 +653,7 @@ grid-area: Main;
 /* Optional checkmark for selected state */
 .route-option input[type="checkbox"]:checked + .content::after {
   content: "✓";
-  position: relative;
+  position: absolute;
   top: 8px;
   right: 8px;
   font-weight: bold;
