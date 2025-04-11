@@ -606,27 +606,40 @@ grid-area: Main;
 }
 
 /* 
-  Wrapper for the checkbox items:
-  Displays items in a grid, 1 column by default, 2 columns on wider screens.
+  Grid Layout for the route cards 
+  (1 column on narrow screens, 2 columns on wider screens)
 */
 .route-options-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Single column by default */
-  gap: 16px;                 /* Spacing between items */
+  grid-template-columns: 1fr; /* Default: single column */
+  gap: 16px; /* Spacing between route cards */
 }
 
 @media (min-width: 600px) {
   .route-options-grid {
-    grid-template-columns: 1fr 1fr; /* Two columns on wider screens */
+    grid-template-columns: 1fr 1fr; /* Two columns for wider screens */
   }
 }
 
-/* 
-  Each route “card”:
-  We assume you’re using <label class="route-option"> that wraps the checkbox 
-  and text, so the entire item is clickable.
+/*
+  Label wraps the checkbox + content (makes the entire card clickable).
 */
 .route-option {
+  position: relative; /* For positioning pseudo-elements if needed */
+}
+
+/* 
+  Hide the actual checkbox so we can use a custom style.
+*/
+.route-option input[type="checkbox"] {
+  display: none;
+}
+
+/*
+  This .content span holds the “card” style. 
+  Its hover/checked states highlight the card and show selection feedback.
+*/
+.route-option .content {
   border: 1px solid var(--color-five);
   border-radius: var(--border-radius-small);
   padding: 16px;
@@ -636,34 +649,50 @@ grid-area: Main;
   flex-direction: column;
 }
 
-/* Hover highlights the box */
-.route-option:hover {
+/* On hover, give the card a highlight or box-shadow */
+.route-option:hover .content {
   border-color: var(--ghost-accent-color);
   box-shadow: 0 0 0 2px var(--ghost-accent-color);
 }
 
-/*
-  Basic styling for the route name and details.
-  Adjust font sizes/colors as desired.
-*/
-.route-name {
+/* Style the route name */
+.route-option .route-name {
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   color: var(--color-font-one);
 }
 
-.route-details {
+/* 
+  Style route details (e.g., distance + location) as a “data chip”
+  – typically a pill-shaped element with a contrasting background. 
+*/
+.route-option .route-details {
+  display: inline-block;
+  background-color: var(--ghost-accent-color);
+  color: #fff; /* Or var(--color-font-three) if you have a text variable */
   font-size: 14px;
-  color: var(--color-font-two);
+  padding: 4px 8px;
+  border-radius: 9999px; /* Creates a pill shape */
+  margin-top: 4px;
 }
 
-/*
-  If you'd like to hide the actual checkbox so only
-  the "card" is visible, you can set display: none 
-  and use a custom pseudo-element for the check. 
-  But here's a simple approach that keeps the default.
+/* When checkbox is checked, indicate selection with a highlight/overlay */
+.route-option input[type="checkbox"]:checked + .content {
+  background-color: var(--ghost-accent-color-opacity, rgba(0, 0, 0, 0.05)); /* Example fallback */
+  border-color: var(--ghost-accent-color);
+  box-shadow: 0 0 0 2px var(--ghost-accent-color);
+}
+
+/* 
+  Optionally add a simple checkmark on the card 
+  when it’s selected.
 */
-.route-option input[type="checkbox"] {
-  margin-bottom: 8px; 
-  /* or display: none; if creating a custom checkmark */
+.route-option input[type="checkbox"]:checked + .content::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--ghost-accent-color);
 }
