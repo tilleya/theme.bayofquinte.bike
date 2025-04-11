@@ -605,32 +605,18 @@ grid-area: Main;
   background-color: var(--color-four);
 }
 
-/* 
-  Grid Layout for the route cards 
-  (1 column on narrow screens, 2 columns on wider screens)
-*/
-.route-options-grid {
-  display: grid;
-  grid-template-columns: 1fr; /* Default: single column */
-  gap: 16px; /* Spacing between route cards */
-}
 
-@media (min-width: 600px) {
-  .route-options-grid {
-    grid-template-columns: 1fr 1fr; /* Two columns for wider screens */
-  }
-}
 
 /* Grid Layout (1 column on narrow, 2 columns on wider screens) */
 .route-options-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Single column by default */
+  grid-template-columns: 1fr 1fr; /* Single column by default */
   gap: 16px;
 }
 
-@media (min-width: 480px) {
+@media (max-width: 500px) {
   .route-options-grid {
-    grid-template-columns: 1fr 1fr; /* Two columns on wider screens */
+    grid-template-columns: 1fr; /* Two columns on wider screens */
   }
 }
 
@@ -670,7 +656,7 @@ grid-area: Main;
   top: 8px;
   right: 8px;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   color: var(--ghost-accent-color);
 }
 
@@ -697,7 +683,7 @@ grid-area: Main;
 .route-option .chip {
   display: inline-block;
   padding: 4px 8px;
-  font-size: 1rem;
+  font-size: 1.4rem;
   border-radius: var(--border-radius-small);
   border: 1px solid var(--ghost-accent-color);
   color: #fff;           /* or var(--color-font-three) */
