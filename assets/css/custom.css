@@ -555,7 +555,7 @@ grid-area: Main;
 /* Label Styling - placing labels closer to inputs */
 .form-group label {
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 400;
   margin-bottom: 4px;  /* Reduced to keep label close to input */
   color: var(--color-font-one);
 }
