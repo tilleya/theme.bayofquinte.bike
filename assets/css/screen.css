@@ -5430,7 +5430,7 @@ textarea::placeholder {
 }
 
 .custom-container {
-   flex: 1 0 57%;
+   flex: 1 0 47%;
    flex-direction: column;
 }
 
@@ -5455,7 +5455,7 @@ textarea::placeholder {
 /* Image
    –––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .custom-image {
-   flex: 1 0 43%;
+   flex: 1 0 53%;
 }
 
 /* Header
@@ -5504,7 +5504,7 @@ textarea::placeholder {
 .custom-content form {
    position: relative;
    width: 100%;
-   max-width: 500px;
+   max-width: 480px;
    margin: 0 auto;
    text-align: center;
 }
