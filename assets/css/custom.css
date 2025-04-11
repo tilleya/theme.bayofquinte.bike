@@ -757,56 +757,65 @@ grid-area: Main;
   background-color: var(--color-five, #317773);
 }
 
-  .timeline-container {
-      max-width: 800px;
-      margin: 0 auto;
-      background: #fff;
-      padding: 40px 20px;
-      border-radius: 8px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      position: relative; /* allows absolute positioning inside */
-    }
-    .timeline {
-      list-style: none; /* remove default bullets */
-      display: flex;
-      justify-content: space-between;
-      position: relative; /* anchor for .timeline::before and li::before */
-      margin: 0;
-      padding: 60px 0; /* extra space top & bottom for the line & dots */
-    }
-    /* The horizontal line */
-    .timeline::before {
-      content: "";
-      position: absolute;
-      top: 80px; /* halfway between the top & bottom padding (60px each side + dot offset) */
-      left: 5%;
-      right: 5%;
-      height: 2px;
-      background: #ccc;
-      z-index: 0;
-    }
-    .timeline li {
-      flex: 1;
-      position: relative;
-      text-align: center;
-    }
-    /* Dot centered on the line */
-    .timeline li::before {
-      content: "";
-      position: absolute;
-      top: 80px; /* match .timeline::before top to align on the line */
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 14px;
-      height: 14px;
-      background: #ff7e5f; /* example color */
-      border-radius: 50%;
-      z-index: 1;
-    }
-    /* Text below the dot */
-    .timeline li span {
-      display: block;
-      margin-top: 20px; /* space below the dot */
-      white-space: normal;       
-      overflow-wrap: break-word; 
-    }
+.timeline-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 40px 20px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        position: relative;
+      }
+      .timeline {
+        list-style: none; /* Removes default bullets */
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin: 0;
+        padding: 60px 0;
+      }
+      /* Draw horizontal line behind timeline items */
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 80px; /* This is the reference line where markers will center-align */
+        left: 5%;
+        right: 5%;
+        height: 2px;
+        background: #ccc;
+        z-index: 0;
+      }
+      .timeline li {
+        flex: 1;
+        position: relative;
+        text-align: center;
+      }
+      /* Create custom marker (dot) positioned exactly on the line */
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        top: 87px; /* Adjusted so that after shifting up by 50% of 14px (i.e. 7px), the center is at 80px */
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 14px;
+        height: 14px;
+        background: #ff7e5f;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .timeline li span {
+        display: block;
+        margin-top: 20px;
+        white-space: normal;
+        overflow-wrap: break-word;
+      }
+      
+      /* Optional: Small responsiveness enhancements */
+      @media (max-width: 600px) {
+        .timeline-container {
+          padding: 20px 10px;
+        }
+        .timeline li span {
+          font-size: 0.9rem;
+        }
+      }
