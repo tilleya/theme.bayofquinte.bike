@@ -652,7 +652,7 @@ grid-area: Main;
 /* Optional checkmark for selected state */
 .route-option input[type="checkbox"]:checked + .content::after {
   content: "✓";
-  position: absolute;
+  position: relative;
   top: 8px;
   right: 8px;
   font-weight: bold;
