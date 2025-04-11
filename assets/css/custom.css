@@ -756,3 +756,53 @@ grid-area: Main;
 .location {
   background-color: var(--color-five, #317773);
 }
+
+.timeline {
+      position: relative;
+      display: flex;
+      justify-content: space-between;  /* even spacing among items */
+      list-style: none;
+      padding: 20px 10px; /* extra top padding for the timeline line and spacing */
+      margin: 0;
+    }
+
+    /* Create a horizontal line behind the bullet points */
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 20px; /* adjust to align with center of bullets */
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #ccc;
+      z-index: 0;
+    }
+
+    /* Each list item is flexed equally with a base width of 0 */
+    .timeline li {
+      position: relative;
+      text-align: center;
+      flex: 1;
+      flex-basis: 0;
+      padding: 0 10px;
+      z-index: 1;
+    }
+
+    /* The bullet point, styled as a circle */
+    .timeline li::before {
+      content: "";
+      display: block;
+      width: 10px;
+      height: 10px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    /* The text associated with the timeline point */
+    .timeline li span {
+      display: inline-block;
+      margin-top: 5px;
+      white-space: normal;       /* allows line breaks */
+      overflow-wrap: break-word; /* ensures words aren’t cut off mid-word */
+    }
