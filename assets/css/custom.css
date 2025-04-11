@@ -491,7 +491,8 @@ grid-area: Main;
   flex: 0 0 43%; /* Or whatever ratio you need */
   background-position: left center;
   background-repeat: no-repeat;
-  background-size: cover; /* Or 'contain' if you prefer no cropping */
+  background-size: contain; /* Or 'contain' if you prefer no cropping */
+  background-attachment: fixed;
 }
 
 /* Right column for your content */
