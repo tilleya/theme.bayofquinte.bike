@@ -330,7 +330,7 @@ textarea::placeholder {
 
 .global-bg-image {
    background: no-repeat center center/cover;
-   background-size: auto;      /* Or "auto" if you don’t want it to scale */
+   background-size: cover;      /* Or "auto" if you don’t want it to scale */
    background-attachment: fixed;
    min-height: 100vh;  
 }
