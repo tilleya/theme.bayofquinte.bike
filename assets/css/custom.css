@@ -698,9 +698,10 @@ grid-area: Main;
   display: inline-block;
   padding: 4px 8px;
   font-size: 14px;
-  border-radius: 9999px; /* pill shape */
+  border-radius: var(--border-radius-small);
+  border-color: var(--ghost-accent-color);
   color: #fff;           /* or var(--color-font-three) */
-  background-color: var(--ghost-accent-color); 
+  background-color: var(--color-body); 
 }
 
 /*
@@ -709,9 +710,9 @@ grid-area: Main;
   one color for distance, another for location.
 */
 .distance {
-  background-color: var(--color-distance-chip, #b23ce8);
+  background-color: var(--color-four, #b23ce8);
 }
 
 .location {
-  background-color: var(--color-location-chip, #317773);
+  background-color: var(--color-five, #317773);
 }
