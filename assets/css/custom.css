@@ -500,7 +500,6 @@ grid-area: Main;
   flex: 1 0 57%;
   display: flex;
   flex-direction: column;
-  background-color: #1b1b28; /* An example background color if desired */
   /* Add any padding/margins you like for spacing */
 }
 
