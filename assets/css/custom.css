@@ -740,7 +740,7 @@ grid-area: Main;
   font-size: 1.4rem;
   border-radius: var(--border-radius-small);
   border: 1px solid var(--ghost-accent-color);
-  color: var(--color-font-three);           /* or var(--color-font-three) */
+  color: var(--ghost-accent-color);           /* or var(--color-font-one) */
   background-color: var(--color-body); 
 }
 
