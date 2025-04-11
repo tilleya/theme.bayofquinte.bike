@@ -5430,7 +5430,7 @@ textarea::placeholder {
 }
 
 .custom-container {
-   flex: 1;
+   flex: 1 0 57%;
    flex-direction: column;
 }
 
