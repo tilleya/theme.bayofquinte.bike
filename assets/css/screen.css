@@ -5705,7 +5705,7 @@ textarea::placeholder {
    font-size: 16px;
    display: block;
    box-sizing: border-box;
-   width: 90%;
+   width: 100%;
    min-height: 110px;
    margin: 40px auto;
    padding: 15px;
