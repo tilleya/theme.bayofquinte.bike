@@ -699,7 +699,7 @@ grid-area: Main;
   padding: 4px 8px;
   font-size: 14px;
   border-radius: var(--border-radius-small);
-  border-color: var(--ghost-accent-color);
+  border: 1px solid var(--ghost-accent-color);
   color: #fff;           /* or var(--color-font-three) */
   background-color: var(--color-body); 
 }
