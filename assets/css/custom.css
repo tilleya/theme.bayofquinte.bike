@@ -708,6 +708,7 @@ grid-area: Main;
   position: absolute;
   top: 8px;
   right: 8px;
+  font-weight: 200;
   font-size: 1.6rem;
   color: var(--ghost-accent-color);
 }
