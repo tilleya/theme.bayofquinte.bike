@@ -757,71 +757,56 @@ grid-area: Main;
   background-color: var(--color-five, #317773);
 }
 
-  /* A container to center and give some structure */
-    .timeline-container {
+  .timeline-container {
       max-width: 800px;
       margin: 0 auto;
       background: #fff;
+      padding: 40px 20px;
       border-radius: 8px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      padding: 40px 20px;
+      position: relative; /* allows absolute positioning inside */
     }
-
-    /* The horizontal timeline as a flex layout */
     .timeline {
-      position: relative;
+      list-style: none; /* remove default bullets */
       display: flex;
       justify-content: space-between;
-      list-style: none;
-      padding: 20px 0;
+      position: relative; /* anchor for .timeline::before and li::before */
       margin: 0;
+      padding: 60px 0; /* extra space top & bottom for the line & dots */
     }
-
-    /* Subtle gradient line behind bullet points */
+    /* The horizontal line */
     .timeline::before {
       content: "";
       position: absolute;
-      top: 55px; /* aligns with bullet centers */
-      left: 60px;
-      right: 60px;
+      top: 80px; /* halfway between the top & bottom padding (60px each side + dot offset) */
+      left: 5%;
+      right: 5%;
       height: 2px;
-      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      background: #ccc;
       z-index: 0;
     }
-
-    /* Individual timeline points */
     .timeline li {
-      position: relative;
       flex: 1;
+      position: relative;
       text-align: center;
-      flex-basis: 0;
-      z-index: 1;
-      transition: transform 0.2s ease;
-      padding: 0 10px;
     }
-    /* Slight hover pop effect */
-    .timeline li:hover {
-      transform: scale(1.05);
-    }
-
-    /* Bullet point with a glow */
+    /* Dot centered on the line */
     .timeline li::before {
       content: "";
-      display: block;
-      margin: 0 auto;
+      position: absolute;
+      top: 80px; /* match .timeline::before top to align on the line */
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 14px;
       height: 14px;
-      background: #ff7e5f;
+      background: #ff7e5f; /* example color */
       border-radius: 50%;
-      border: 2px solid #fff;
-      box-shadow: 0 0 10px rgba(255,126,95,0.5); 
+      z-index: 1;
     }
-
-    /* Labels under the bullet */
+    /* Text below the dot */
     .timeline li span {
       display: block;
-      margin-top: 10px;
-      font-weight: 500;
-      white-space: normal;        /* allow wrapping */
-      overflow-wrap: break-word;  /* no broken words */
+      margin-top: 20px; /* space below the dot */
+      white-space: normal;       
+      overflow-wrap: break-word; 
     }
