@@ -663,6 +663,7 @@ grid-area: Main;
 /* Route Name */
 .route-option .route-name {
   font-weight: 400;
+  font-size: 1.8rem;
   margin-bottom: 8px;
   color: var(--color-font-one);
 }
