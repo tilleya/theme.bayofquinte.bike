@@ -757,52 +757,71 @@ grid-area: Main;
   background-color: var(--color-five, #317773);
 }
 
-.timeline {
+  /* A container to center and give some structure */
+    .timeline-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 40px 20px;
+    }
+
+    /* The horizontal timeline as a flex layout */
+    .timeline {
       position: relative;
       display: flex;
-      justify-content: space-between;  /* even spacing among items */
+      justify-content: space-between;
       list-style: none;
-      padding: 20px 10px; /* extra top padding for the timeline line and spacing */
+      padding: 20px 0;
       margin: 0;
     }
 
-    /* Create a horizontal line behind the bullet points */
+    /* Subtle gradient line behind bullet points */
     .timeline::before {
       content: "";
       position: absolute;
-      top: 20px; /* adjust to align with center of bullets */
-      left: 0;
-      right: 0;
+      top: 55px; /* aligns with bullet centers */
+      left: 60px;
+      right: 60px;
       height: 2px;
-      background: #ccc;
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
       z-index: 0;
     }
 
-    /* Each list item is flexed equally with a base width of 0 */
+    /* Individual timeline points */
     .timeline li {
       position: relative;
-      text-align: center;
       flex: 1;
+      text-align: center;
       flex-basis: 0;
-      padding: 0 10px;
       z-index: 1;
+      transition: transform 0.2s ease;
+      padding: 0 10px;
+    }
+    /* Slight hover pop effect */
+    .timeline li:hover {
+      transform: scale(1.05);
     }
 
-    /* The bullet point, styled as a circle */
+    /* Bullet point with a glow */
     .timeline li::before {
       content: "";
       display: block;
-      width: 10px;
-      height: 10px;
       margin: 0 auto;
-      background: #000;
+      width: 14px;
+      height: 14px;
+      background: #ff7e5f;
       border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 10px rgba(255,126,95,0.5); 
     }
 
-    /* The text associated with the timeline point */
+    /* Labels under the bullet */
     .timeline li span {
-      display: inline-block;
-      margin-top: 5px;
-      white-space: normal;       /* allows line breaks */
-      overflow-wrap: break-word; /* ensures words aren’t cut off mid-word */
+      display: block;
+      margin-top: 10px;
+      font-weight: 500;
+      white-space: normal;        /* allow wrapping */
+      overflow-wrap: break-word;  /* no broken words */
     }
