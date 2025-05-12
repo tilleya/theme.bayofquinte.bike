@@ -3,4 +3,9 @@
 {{>loop}}
 {{pagination}}
 {{>sections}}
-{{>featured_route_embed}}
+{{!-- render remaining page content --}}
+{{#get "pages" filter="tags:[hash-featured-routes]" include="tags" order="published_at asc" as |pages|}}
+	{{#foreach pages}}
+		{{>featured_route_embed}}
+	{{/foreach}}
+{{/get}}
