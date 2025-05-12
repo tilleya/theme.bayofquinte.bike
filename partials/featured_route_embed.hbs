@@ -1,14 +1,12 @@
 {{!-- render featured route --}}
 {{#match tags.[0].slug "hash-featured-routes"}}
 
-    <div class="pinned-wrap">
-      <div class="pinned-item">
+
         <iframe 
           src="{{excerpt}}" 
           style="width: clamp(300px, 100%, 100vw); height: clamp(300px, 550px, 90vh); border: none;" 
           scrolling="no">
         </iframe>
-      </div>
-    </div>
+
 
   {{/match}}
