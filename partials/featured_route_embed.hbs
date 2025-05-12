@@ -1,6 +1,6 @@
 {{!-- render featured route --}}
-{{#has tag="hash-featured-routes"}}
-  <div id="pinned" class="pinned-section">
+{{#match tags.[0].slug "hash-featured-routes"}}
+
     <div class="pinned-wrap">
       <div class="pinned-item">
         <iframe 
@@ -10,5 +10,5 @@
         </iframe>
       </div>
     </div>
-  </div> 
-{{/has}}
+
+  {{/match}}

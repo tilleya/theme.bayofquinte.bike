@@ -4,8 +4,10 @@
 {{pagination}}
 {{>sections}}
 {{!-- render remaining page content --}}
+<div id="pinned" class="pinned-section">
 {{#get "pages" filter="tags:[hash-featured-routes]" include="tags" order="published_at asc" as |pages|}}
 	{{#foreach pages}}
 		{{>featured_route_embed}}
 	{{/foreach}}
 {{/get}}
+</div>
