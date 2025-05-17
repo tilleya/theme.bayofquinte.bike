@@ -1,12 +1,8 @@
 {{!-- render featured route --}}
 {{#match tags.[0].slug "hash-featured-route"}}
-
-
         <iframe 
           src="{{excerpt}}" 
           style="width: clamp(300px, 100%, 100vw); height: clamp(300px, 550px, 90vh); border: none;" 
           scrolling="no">
         </iframe>
-
-
   {{/match}}
