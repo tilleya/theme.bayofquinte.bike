@@ -912,7 +912,7 @@ ul.route-stats {
   height: 100%;
   gap: clamp(1rem, 2vh, 2rem);
   box-sizing: border-box;
-  padding: clamp(1rem, 30px, 1.5rem), clamp(1rem, 30px, 1.5rem), clamp(1rem, 30px, 1.5rem), 0px;
+  padding: clamp(1rem, 30px, 1.5rem) clamp(1rem, 30px, 1.5rem) clamp(1rem, 30px, 1.5rem), 0px;
 }
 
 /* Individual Post Card */
