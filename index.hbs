@@ -3,15 +3,4 @@
 {{>loop}}
 {{pagination}}
 {{>sections}}
-{{!-- render remaining page content --}}
-<div id="pinned" class="pinned-section">
-    <div class="pinned-wrap">
-{{#get "pages" filter="tags:[hash-featured-route]" include="tags" order="published_at asc" as |pages|}}
-	{{#foreach pages}}
-	 <div class="pinned-item">
-		{{>featured_route_embed}}
-	 </div>
-	{{/foreach}}
-{{/get}}
-</div>
-</div>
+{{>featured_route_embed}}

@@ -14,12 +14,20 @@
     "config": {
         "posts_per_page": 7,
         "card_assets": {
-            "exclude": ["bookmark", "gallery", "blockquote"]
+            "exclude": [
+                "bookmark",
+                "gallery",
+                "blockquote"
+            ]
         },
         "custom": {
             "color_scheme": {
                 "type": "select",
-                "options": ["Light", "Dark", "Auto"],
+                "options": [
+                    "Light",
+                    "Dark",
+                    "Auto"
+                ],
                 "default": "Light"
             },
             "logo_for_dark_color_scheme": {
@@ -64,15 +72,43 @@
             "footer_copyright": {
                 "type": "text"
             },
-            "tag_for_special_section": {
+            "tag_for_special_section_1": {
                 "type": "text",
                 "group": "homepage",
-                "description": "Specify the tag slug you want to display in the special section, e.g. lifestyle"
+                "default": "featured",
+                "description": "Specify the tag slug you want to exclude in the loop."
+            },
+            "tag_for_special_section_2": {
+                "type": "text",
+                "group": "homepage",
+                "default": "guide",
+                "description": "Specify the tag slug you want to exclude in the loop."
+            },
+            "tag_for_special_section_3": {
+                "type": "text",
+                "group": "homepage",
+                "default": "events",
+                "description": "Specify the tag slug you want to exclude in the loop."
             },
             "disqus_shortname": {
                 "type": "text",
                 "group": "post"
+            },
+            "sponsor_logo": {
+                "type": "image",
+                "group": "sponsors",
+                "description": "Upload a sponsor logo to display in the hero section"
+            },
+            "sponsor_cta_text": {
+                "type": "text",
+                "group": "sponsors",
+                "default": "Learn More",
+                "description": "Enter the text for the call-to-action button in the hero section."
             }
         }
+    },
+    "dependencies": {
+        "gulp": "^5.0.0",
+        "yarn": "^1.22.22"
     }
 }

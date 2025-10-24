@@ -1,0 +1,66 @@
+<section class="hero-sponsor">
+
+      <div class="hero-sponsor-grid is-cover"
+           style="background-image: url('{{feature_image}}');"
+           data-layout="hero">
+
+        <div class="hero-sponsor-overlay"></div>
+
+        {{!-- HERO CONTENT (LEFT SIDE) --}}
+        <div class="hero-sponsor-content">
+          
+          {{!-- ✅ Dynamically load sponsor logo or fallback to default --}}
+          {{#if @custom.sponsor_logo}}
+            <img src="{{@custom.sponsor_logo}}" alt="{{name}}" class="hero-sponsor-logo">
+          {{else}}
+            <img src="/assets/image/HC-wordmark.svg" alt="{{name}}" class="hero-sponsor-logo">
+          {{/if}}
+
+          {{!-- ✅ Dynamically load the tag’s description as the main headline --}}
+          <h1>
+            {{#if description}}
+              {{description}}
+            {{else}}
+              Welcome to BOQ.BIKE
+            {{/if}}
+          </h1>
+
+          {{!-- ✅ CTA & Post Count Section --}}
+          <div class="hero-sponsor-meta">        
+<a href="https://hastings.bike/?utm_source=bayofquinte.bike&utm_medium=referral&utm_campaign=partnership" 
+   target="_blank" 
+   rel="noopener" 
+   class="hero-sponsor-cta">
+   Explore Hastings.BIKE
+</a>
+          </div>
+        </div>
+
+        {{!-- GRID ITEMS (RIGHT SIDE) - PULLS 3 DYNAMIC POSTS --}}
+        <div class="hero-sponsor-posts-container">
+        {{#get "posts"
+          limit="3"
+          filter=(concat "tag:" slug)
+          include="authors,tags"
+          as |sponsor_posts|}}
+          {{#foreach sponsor_posts}}
+          <div class="hero-sponsor-post grid-item">
+  <div class="hero-sponsor-post-icon">
+    {{#if feature_image}}
+      <img src="{{feature_image}}" alt="{{title}}" class="hero-sponsor-post-image">
+    {{else}}
+     {{!-- Fallback Icon --}}
+    {{/if}}
+  </div>
+  <div class="hero-sponsor-post-content">
+    <h3><a href="{{url}}">{{title}}</a></h3>
+    <p>{{excerpt words="15"}}...</p>
+  </div>
+</div>
+          {{/foreach}}
+        {{/get}}
+    </div> 
+
+      </div>
+
+  </section>

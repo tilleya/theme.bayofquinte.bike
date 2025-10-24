@@ -1,0 +1,62 @@
+{{#foreach posts}}
+    <article class="loop-item global-box-shadow
+        {{#if @first}} is-first{{/if}}
+        {{#if @last}} is-last{{/if}}
+        {{#if feature_image}} is-image{{/if}}">
+        
+        <div class="loop-item-wrap">
+            <div class="loop-item-elements">
+                <a href="{{url}}" class="global-link" aria-label="{{title}}"></a>
+                
+                {{#if feature_image}}
+                    <div class="loop-item-image global-image">
+                        <img src="{{feature_image}}" alt="{{title}}">
+                    </div>
+                {{/if}}
+
+                <div class="loop-item-content">
+                    {{>members/visibility_label}}
+
+                    {{#is "index"}}
+                        {{#if @first}}
+                            <h1 class="loop-item-title global-title">
+                                <a href="{{url}}" class="global-underline">{{title}}</a>
+                            </h1>
+                        {{else}}
+                            <h2 class="loop-item-title global-title">
+                                <a href="{{url}}" class="global-underline">{{title}}</a>
+                            </h2>
+                        {{/if}}
+                    {{else}}
+                        <h2 class="loop-item-title global-title">
+                            <a href="{{url}}" class="global-underline">{{title}}</a>
+                        </h2>
+                    {{/is}}
+
+                    {{!-- Author Formatting --}}
+                    {{#if @custom.show_author}}
+                        <div class="loop-item-meta global-meta">
+                            {{#has author="count:1"}}
+                                {{authors}}
+                            {{else has author="count:2"}}
+                                {{authors separator=(t " & ")}}
+                            {{else has author="count:>2"}}
+                                {{authors limit="1"}}
+                                {{t "and others"}}
+                            {{/has}}
+                        </div>
+                    {{/if}}
+
+                    {{!-- Excerpt Handling --}}
+                    <p class="loop-item-excerpt">
+                        {{#if custom_excerpt}}
+                            {{custom_excerpt}}
+                        {{else}}
+                            {{excerpt words="20"}}...
+                        {{/if}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </article>
+{{/foreach}}

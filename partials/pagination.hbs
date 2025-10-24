@@ -1,12 +1,16 @@
-{{#if next}}
+{{#if pagination.total_pages}}
 <div class="pagination-section">
-	<div class="pagination-wrap">
-		<a id="next" href="{{page_url next}}"></a>
-		{{#if @custom.standard_load_more_button}}
-		<button id="loadmore" class="global-button">{{t "Load more"}}</button>
-		{{else}}
-		<button id="loadmore" class="load-more" aria-label="{{t "Load more"}}"></button>
-		{{/if}}
-	</div>
+    <div class="pagination-wrap">
+        {{#if pagination.prev}}
+        <a class="newer-posts global-button" href="{{pagination.prev}}">
+            &larr; {{t "Newer Posts"}}
+        </a>
+        {{/if}}
+        {{#if pagination.next}}
+        <a class="older-posts global-button" href="{{pagination.next}}">
+            {{t "Older Posts"}} &rarr;
+        </a>
+        {{/if}}
+    </div>
 </div>
 {{/if}}

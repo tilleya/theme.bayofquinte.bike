@@ -1,4 +1,4 @@
-{{!< default}}
+{{!< default}} 
 {{!-- HERO SPONSOR SECTION --}}
 {{#get "tags"
   limit="all"
@@ -16,7 +16,6 @@
         <div class="hero-sponsor-overlay"></div>
 
         {{!-- HERO CONTENT (LEFT SIDE) --}}
-        <div class="hero-sponsor-left-container">
         <div class="hero-sponsor-content">
           
           {{!-- ✅ Dynamically load sponsor logo or fallback to default --}}
@@ -37,9 +36,8 @@
 
           {{!-- ✅ CTA & Post Count Section --}}
           <div class="hero-sponsor-meta">        
-              <a href="{{url}}" class="hero-sponsor-cta">Discover our <strong>{{count.posts}}</strong> routes.</a>
+              <a href="{{url}}" target="_blank" rel="noopener" class="hero-sponsor-cta">Discover our <strong>{{count.posts}}+</strong> routes.</a>
           </div>
-        </div>
         </div>
 
         {{!-- GRID ITEMS (RIGHT SIDE) - PULLS 3 DYNAMIC POSTS --}}
@@ -61,7 +59,7 @@
   <div class="hero-sponsor-post-content">
     <h3><a href="{{url}}">{{title}}</a></h3>
     <p>{{excerpt words="15"}}...</p>
-	</div>
+  </div>
 </div>
           {{/foreach}}
         {{/get}}
@@ -73,71 +71,56 @@
   {{/if}}
 {{/get}}
 
-{{!-- TOP TAGS: Only Prince Edward County, Lennox & Addington County, Northumberland County --}}
-{{#get "tags"
-    limit="all"
-    filter="slug:[prince-edward-county,lennox-addington-county,northumberland-county]"
-    include="count.posts"
-    order="id asc"
-    as |tags_top|
-}}
+{{!-- OTHER TAG SECTIONS --}}
+{{#get "tags" limit="all" filter="slug:-[hastings-county, adventurer, rambler, wineries, epic, explorer, best, millennium-trail, breweries, guides]" include="count.posts" order="id asc" as |tags_top|}}
   {{#if tags_top}}
-<div class="loop-wrap">
-	{{#foreach tags to="4"}}
-	{{#if count.posts}}
-	<div class="custom-element top loop-item global-box-shadow{{#if feature_image}} is-image{{/if}}">
-		<div class="custom-element-wrap loop-item-wrap">
-			<div class="loop-item-elements">
-				<a href="{{url}}" class="global-link" aria-label="{{name}}"></a>
-				{{#if feature_image}}
-				<div class="custom-element-image loop-item-image global-image">
-					{{>images/tag_feature_img}}
-				</div>
-				{{/if}}
-			</div>
-			<div class="custom-element-content top loop-item-content">
-				<div class="custom-element-title-wrap">
-					<h2 class="loop-item-title global-title">
-					<a href="{{url}}" class="global-underline">{{name}}</a>
-					</h2>
-				</div>
-				<div class="custom-element-counter top">
-					<span>{{count.posts}}</span>
-				</div>
-			</div>
-		</div>
-	</div>
-	{{/if}}
-	{{/foreach}}
-    </div>
-  {{/if}}
-{{/get}}
-
-{{!-- BOTTOM TAGS: Everything else (excluding the above counties & any other slugs you don’t want) --}}
-{{#get "tags"
-    limit="all"
-    filter="slug:-[prince-edward-county,lennox-addington-county,northumberland-county,hastings-county,adventurer,rambler,wineries,epic,explorer,best,Events,millennium-trail,breweries,guides]"
-    include="count.posts"
-    order="id asc"
-    as |tags_bottom|
-}}
-  {{#if tags_bottom}}
-    <div class="global-heading">
-      <h3>{{t "Villages, Towns, Cities"}}</h3>
-    </div>
-    <div class="special-section">
-      <div class="special-section-content">
-        {{#foreach tags_bottom}}
-          <a href="{{url}}" class="custom-element bottom">
-            <div class="custom-element-content bottom">
-              <h2>{{name}}</h2>
-              <div class="custom-element-counter bottom">
-                <span>{{count.posts}}</span>
-              </div>
-            </div>
-          </a>
-        {{/foreach}}
+  <div class="loop-wrap">
+    {{#foreach tags_top limit="3"}}
+    <div class="custom-element top loop-item global-box-shadow{{#if feature_image}} is-image{{/if}}">
+      <div class="custom-element-wrap loop-item-wrap">
+        <div class="loop-item-elements">
+          <a href="{{url}}" class="global-link" aria-label="{{name}}"></a>
+          {{#if feature_image}}
+          <div class="custom-element-image loop-item-image global-image">
+            {{>images/tag_feature_img}}
+          </div>
+          {{/if}}
+        </div>
+        <div class="custom-element-content top loop-item-content">
+          <div class="custom-element-title-wrap">
+            <h2 class="loop-item-title global-title">
+              <a href="{{url}}" class="global-underline">{{name}}</a>
+            </h2>
+          </div>
+          <div class="custom-element-counter top">
+            <span>{{count.posts}}</span>
+          </div>
+        </div>
       </div>
     </div>
+    {{/foreach}}
+  </div>
   {{/if}}
+
+  {{#foreach tags_top skip="3"}}
+  {{#if @first}}
+  <div class="global-heading">
+    <h3>{{t "Villages, Towns, Cities"}}</h3>
+  </div>
+  <div class="special-section">
+    <div class="special-section-content">
+      {{/if}}
+      <a href="{{url}}" class="custom-element bottom">
+        <div class="custom-element-content bottom">
+          <h2>{{name}}</h2>
+          <div class="custom-element-counter bottom">
+            <span>{{count.posts}}</span>
+          </div>
+        </div>
+      </a>
+      {{#if @last}}
+    </div>
+  </div>
+  {{/if}}
+  {{/foreach}}
 {{/get}}
