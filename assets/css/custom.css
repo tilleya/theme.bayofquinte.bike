@@ -961,9 +961,9 @@ ul.route-stats {
 }
 
 .hero-sponsor-post-content h3 {
-  font-size: clamp(1.5rem, 1.9vw, 2.5rem);
+  font-size: clamp(1.5rem, 1.9vw, 2.0rem);
   margin: 0;
-  line-height: 1.6;
+  line-height: clamp(2.5rem, 3vh, 4rem);
 }
 
 .hero-sponsor-post-content a {
